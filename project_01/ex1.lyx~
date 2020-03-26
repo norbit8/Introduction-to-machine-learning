@@ -1594,19 +1594,121 @@ C=\begin{pmatrix}0.24479533 & -0.02450719 & 0.05942625\\
 \end_layout
 
 \begin_layout Subparagraph*
-)b(
+)c(+)b(
 \end_layout
 
 \begin_layout Standard
-פתרון
-\end_layout
+\begin_inset Formula $\,$
+\end_inset
 
-\begin_layout Subparagraph*
-)c(
+
 \end_layout
 
 \begin_layout Standard
-פתרון
+
+\series bold
+הסבר עבור סעיף 
+\begin_inset Formula $c$
+\end_inset
+
+:
+\series default
+ אני מצפה לראות שהממוצע רחוק מהתוחלת בניסויים שלנו תרד ככול שמספר הזריקות
+ עולה,
+\end_layout
+
+\begin_layout Standard
+כלומר ככל שאנחנו זורקים יותר כך המרחק שנתון בסעיף 
+\begin_inset Formula $c$
+\end_inset
+
+ יהיה קטן יותר וכך אחוז הניסויים שהיו רחוקים מאפסילון
+\end_layout
+
+\begin_layout Standard
+תקטן.
+\end_layout
+
+\begin_layout Standard
+כמו כן כאשר אפסילון גדול יחסית, כך נגיע מהר יותר לאחוז
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\numeric off
+, וההפך.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename q16_e05.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename q16_e25.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename q16_e01.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename q16_e001.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename q16_e0001.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
 \end_layout
 
 \end_body

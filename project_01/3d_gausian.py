@@ -181,22 +181,14 @@ def question_16_a(data):
     plot_q16(data[:5])
 
 
-def true_false_inequality(data, eps, data_len):
-    """
-
-    :param data: Data.
-    :return: The variance value.
-    """
-    print("--------------------------------")
-    print(data)
-    print("--------------------------------")
-    return np.array([abs(np.mean(data[:index + 1]) - 0.25) >= eps for index in range(data_len)])
-
-
 def create_pecentage_c(data, eps, data_len):
-    # tf = np.array([true_false_inequality(data[seq], eps, data_len) for seq in range(exp_number)])
-    # percentage = tf.sum(axis=0)/exp_number
-    # return percentage
+    """
+    creates the percentage table
+    :param data: data
+    :param eps: epsilon
+    :param data_len: data length
+    :return: percentage table
+    """
     cummean = np.add.accumulate(data, axis=1) / np.arange(1, data_len + 1)
     true_false_table = abs(cummean - 0.25) >= eps
     return true_false_table.sum(axis=0) / exp_number
@@ -235,16 +227,15 @@ if __name__ == "__main__":
     data = np.random.multivariate_normal(mean, cov, population).T
     np.set_printoptions(suppress=True)
     # ----------------------------------
-    # question_11(data)
-    # transformed_data = question_12(data)
-    # question_13(transformed_data)
-    # question_14(data)
-    # question_15(data)
+    question_11(data)
+    transformed_data = question_12(data)
+    question_13(transformed_data)
+    question_14(data)
+    question_15(data)
     # ----- Question no.16 -----
-    exp_number = 100000 # 100000
-    data_len = 1000 # 1000
+    exp_number = 100000  # 100000
+    data_len = 1000  # 1000
     ndata = np.random.binomial(1, 0.25, (exp_number, data_len))
     epsilon = [0.5, 0.25, 0.1, 0.01, 0.001]
-    # question_16_a(data)
-
+    question_16_a(data)
     question_16_bc(ndata, epsilon, data_len)

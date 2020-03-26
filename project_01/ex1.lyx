@@ -1045,7 +1045,37 @@ b_{k+1}=\frac{C_{0}b_{k}}{\left\Vert C_{0}b_{k}\right\Vert }=\frac{C_{0}^{k+1}b_
 \end_layout
 
 \begin_layout Standard
-בלה בלה
+\begin_inset Formula 
+\[
+f(\sigma)=\sum_{i=1}^{n}\sigma_{i}u_{i}u_{i}^{T}x\qquad\text{where }u_{i}\text{ is the i'th column of matrix U}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת, איבר בשורה ה-
+\begin_inset Formula $k$
+\end_inset
+
+ ובעמודה ה-
+\begin_inset Formula $i$
+\end_inset
+
+ במטריצת היעקוביאן תראה כך:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial f_{k}\left(\sigma_{\text{const}}\right)}{\partial\sigma_{i}}=\left[u_{i}u_{i}^{T}x\right]_{k}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph*
@@ -1089,7 +1119,14 @@ b_{k+1}=\frac{C_{0}b_{k}}{\left\Vert C_{0}b_{k}\right\Vert }=\frac{C_{0}^{k+1}b_
 \end_layout
 
 \begin_layout Standard
-בלה בלה
+\begin_inset Formula 
+\[
+\nabla h=\left(\sigma\right)\left(f\left(\sigma\right)-y\right)^{T}\nabla f\left(\sigma\right)
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph*
@@ -1131,7 +1168,14 @@ b_{k+1}=\frac{C_{0}b_{k}}{\left\Vert C_{0}b_{k}\right\Vert }=\frac{C_{0}^{k+1}b_
 \end_layout
 
 \begin_layout Standard
-בלה בלה
+\begin_inset Formula 
+\[
+\frac{\partial g_{i}\left(z\right)}{\partial z_{j}}=g_{i}(z)\left(\delta_{ij}-g_{j}\left(z\right)\right)
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph*
@@ -1602,6 +1646,64 @@ C=\begin{pmatrix}0.24479533 & -0.02450719 & 0.05942625\\
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+הסבר עבור סעיף 
+\begin_inset Formula $c$
+\end_inset
+
+:
+\series default
+ אני מצפה לראות שהממוצע רחוק מהתוחלת בניסויים שלנו תרד ככול שמספר הזריקות
+ עולה,
+\end_layout
+
+\begin_layout Standard
+כלומר ככל שאנחנו זורקים יותר כך המרחק שנתון בסעיף 
+\begin_inset Formula $c$
+\end_inset
+
+ יהיה קטן יותר וכך אחוז הניסויים שהיו רחוקים מאפסילון
+\end_layout
+
+\begin_layout Standard
+תקטן.
+\end_layout
+
+\begin_layout Standard
+כמו כן כאשר אפסילון גדול יחסית, כך נגיע מהר יותר לאחוז
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\numeric off
+, וההפך.
 \end_layout
 
 \begin_layout Standard
