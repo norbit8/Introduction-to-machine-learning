@@ -4,6 +4,7 @@
 # id: 314963257
 # --------------------
 # ----- imports: -----
+import math
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
@@ -180,14 +181,42 @@ def question_16_a(data):
     plot_q16(data[:5])
 
 
-def question_16_b(data):
+def true_false_inequality(data, epsilons):
+    """
+
+    :param data: Data.
+    :return: The variance value.
+    """
+    values = []
+    for eps in epsilons:
+        for index in range(len(data)):
+            values.append(abs(np.mean(data[:index + 1]) - 0.25) >= eps)
+    return values
+
+
+def question_16_b(data, epsilons):
     """
     Question 16 b,
     :param data:
     :return:
     """
-    pass
-
+    variance = 0.1875
+    for eps in epsilons:
+        fig, ax = plt.subplots()  # Create a figure containing a single axes.
+        chebyshev = [min(variance/(x*(eps**2)), 1) for x in range(1, 1001)]
+        hoeffding = [min(2*math.exp(-2*x*(eps**2)), 1) for x in range(1, 1001)]
+        ax.plot(range(1, 1001), chebyshev, label="chebyshev")  # plot 1
+        ax.plot(range(1, 1001), hoeffding, label="hoeffding")  # plot 1
+        print("eps="+str(eps), "hoeffding=", hoeffding)
+        print("chebyshev=", chebyshev)
+        ax.set_xlabel("Toss numbers (m)")
+        ax.set_ylabel("Upper Bound")
+        ax.legend()
+        ax.set_ylim(ymin=0, ymax=1.01)
+        ax.set_xlim(xmin=0, xmax=1000)
+        plt.grid(color='#999999', linestyle='--', alpha=0.3)
+        ax.set_title("Q16b: epsilon = " + str(eps))
+        fig.show()
 
 def question_16_c(data):
     """
@@ -206,14 +235,17 @@ if __name__ == "__main__":
     data = np.random.multivariate_normal(mean, cov, population).T
     np.set_printoptions(suppress=True)
     # ----------------------------------
-    question_11(data)
-    transformed_data = question_12(data)
-    question_13(transformed_data)
-    question_14(data)
-    question_15(data)
+    # question_11(data)
+    # transformed_data = question_12(data)
+    # question_13(transformed_data)
+    # question_14(data)
+    # question_15(data)
     # ----- Question no.16 -----
     data = np.random.binomial(1, 0.25, (5, 1000))
     epsilon = [0.5, 0.25, 0.1, 0.01, 0.001]
-    question_16_a(data)
-    question_16_b(data)
-    question_16_c(data)
+    # question_16_a(data)
+    # question_16_b(data[0], epsilon)
+    tf = []
+    for seq in range(len(data)):
+        tf.append(true_false_inequality(data[seq], epsilon))
+    print(np.array(tf))

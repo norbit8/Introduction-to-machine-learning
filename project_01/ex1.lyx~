@@ -82,7 +82,11 @@
 \begin_body
 
 \begin_layout Title
-מבוא למערכות לומדות - תרגיל
+
+\color red
+מבוא למערכות לומדות
+\color inherit
+ - תרגיל
 \family roman
 \series medium
 \shape up
@@ -1526,8 +1530,83 @@ C=\begin{pmatrix}0.24479533 & -0.02450719 & 0.05942625\\
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+16
+\end_layout
 
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph*
+)a(
+\end_layout
+
+\begin_layout Standard
+אני מצפה לראות התכנסות לממוצא ככול שמספר ההטלות הולך וגדל )לפי החוק החלש
+ של המספרים הגדולים(,
+\end_layout
+
+\begin_layout Standard
+ואכן בגרף ניתן לראות זאת בבירור.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Q16_a.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph*
+)b(
+\end_layout
+
+\begin_layout Standard
+פתרון
+\end_layout
+
+\begin_layout Subparagraph*
+)c(
+\end_layout
+
+\begin_layout Standard
+פתרון
 \end_layout
 
 \end_body
