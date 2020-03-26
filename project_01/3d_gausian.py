@@ -181,20 +181,28 @@ def question_16_a(data):
     plot_q16(data[:5])
 
 
-def true_false_inequality(data, epsilons):
+def true_false_inequality(data, eps, data_len):
     """
 
     :param data: Data.
     :return: The variance value.
     """
-    values = []
-    for eps in epsilons:
-        for index in range(len(data)):
-            values.append(abs(np.mean(data[:index + 1]) - 0.25) >= eps)
-    return values
+    print("--------------------------------")
+    print(data)
+    print("--------------------------------")
+    return np.array([abs(np.mean(data[:index + 1]) - 0.25) >= eps for index in range(data_len)])
 
 
-def question_16_b(data, epsilons):
+def create_pecentage_c(data, eps, data_len):
+    # tf = np.array([true_false_inequality(data[seq], eps, data_len) for seq in range(exp_number)])
+    # percentage = tf.sum(axis=0)/exp_number
+    # return percentage
+    cummean = np.add.accumulate(data, axis=1) / np.arange(1, data_len + 1)
+    true_false_table = abs(cummean - 0.25) >= eps
+    return true_false_table.sum(axis=0) / exp_number
+
+
+def question_16_bc(data, epsilons, data_len):
     """
     Question 16 b,
     :param data:
@@ -205,10 +213,10 @@ def question_16_b(data, epsilons):
         fig, ax = plt.subplots()  # Create a figure containing a single axes.
         chebyshev = [min(variance/(x*(eps**2)), 1) for x in range(1, 1001)]
         hoeffding = [min(2*math.exp(-2*x*(eps**2)), 1) for x in range(1, 1001)]
-        ax.plot(range(1, 1001), chebyshev, label="chebyshev")  # plot 1
-        ax.plot(range(1, 1001), hoeffding, label="hoeffding")  # plot 1
-        print("eps="+str(eps), "hoeffding=", hoeffding)
-        print("chebyshev=", chebyshev)
+        percentage = create_pecentage_c(data, eps, data_len)
+        ax.plot(range(1, 1001), chebyshev, label="chebyshev bound")  # plot 1
+        ax.plot(range(1, 1001), hoeffding, label="hoeffding bound")  # plot 1
+        ax.plot(range(1, 1001), percentage, label="percentage satisfying event")  # plot 1
         ax.set_xlabel("Toss numbers (m)")
         ax.set_ylabel("Upper Bound")
         ax.legend()
@@ -217,14 +225,6 @@ def question_16_b(data, epsilons):
         plt.grid(color='#999999', linestyle='--', alpha=0.3)
         ax.set_title("Q16b: epsilon = " + str(eps))
         fig.show()
-
-def question_16_c(data):
-    """
-
-    :param data:
-    :return:
-    """
-    pass
 
 
 if __name__ == "__main__":
@@ -241,11 +241,10 @@ if __name__ == "__main__":
     # question_14(data)
     # question_15(data)
     # ----- Question no.16 -----
-    data = np.random.binomial(1, 0.25, (5, 1000))
+    exp_number = 100000 # 100000
+    data_len = 1000 # 1000
+    ndata = np.random.binomial(1, 0.25, (exp_number, data_len))
     epsilon = [0.5, 0.25, 0.1, 0.01, 0.001]
     # question_16_a(data)
-    # question_16_b(data[0], epsilon)
-    tf = []
-    for seq in range(len(data)):
-        tf.append(true_false_inequality(data[seq], epsilon))
-    print(np.array(tf))
+
+    question_16_bc(ndata, epsilon, data_len)
