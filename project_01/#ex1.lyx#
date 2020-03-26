@@ -1573,7 +1573,24 @@ C=\begin{pmatrix}0.24479533 & -0.02450719 & 0.05942625\\
 \end_layout
 
 \begin_layout Standard
-פתרון
+אני מצפה לראות התכנסות לממוצא ככול שמספר ההטלות הולך וגדל )לפי החוק החלש
+ של המספרים הגדולים(,
+\end_layout
+
+\begin_layout Standard
+ואכן בגרף ניתן לראות זאת בבירור.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Q16_a.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subparagraph*
