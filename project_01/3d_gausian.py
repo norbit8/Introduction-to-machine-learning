@@ -66,18 +66,18 @@ def estimator_function(data):
     return values
 
 
-def plot_q16(data):
+def plot_q16():
     """
     This function plots the sample mean of a coin toss as a function of the number of tosses (m)
     as requested in question number 16 (a).
     :param data: 5d vector of vectors where the data of each batch is.
     :return: nothing.
     """
-    data1 = estimator_function(data[0])
-    data2 = estimator_function(data[1])
-    data3 = estimator_function(data[2])
-    data4 = estimator_function(data[3])
-    data5 = estimator_function(data[4])
+    data1 = estimator_function(ndata[0])
+    data2 = estimator_function(ndata[1])
+    data3 = estimator_function(ndata[2])
+    data4 = estimator_function(ndata[3])
+    data5 = estimator_function(ndata[4])
     fig, ax = plt.subplots()  # Create a figure containing a single axes.
     ax.plot(range(1, 1001), data1, label="sequence 1")  # plot 1
     ax.plot(range(1, 1001), data2, label="sequence 2")  # plot 2
@@ -87,8 +87,8 @@ def plot_q16(data):
     ax.set_xlabel("Toss numbers (m)")
     ax.set_ylabel("Sample mean (estimator)")
     ax.legend()
-    ax.set_ylim(ymin=0, ymax=1)
-    ax.set_xlim(xmin=0, xmax=1000)
+    ax.set_ylim(bottom=0, top=1)
+    ax.set_xlim(left=0, right=1000)
     plt.grid(color='#999999', linestyle='--', alpha=0.3)
     ax.set_title("Q16: 5 independent sequences of 1,000 tosses and their mean")
     fig.show()
@@ -172,48 +172,46 @@ def question_15(data):
     plot_2d(data_01zm04, "Q15: Projection to x, y after filtering dots 0.1 > z > -0.4")
 
 
-def question_16_a(data):
+def question_16_a():
     """
     Question 16 a, plotting the experiment.
     :param data: data of 5 batches of 1000 coin tosses.
     :return: nothing.
     """
-    plot_q16(data[:5])
+    plot_q16()
 
 
-def create_pecentage_c(data, eps, data_len):
+def create_pecentage_c(eps, cummean):
     """
     creates the percentage table
-    :param data: data
     :param eps: epsilon
-    :param data_len: data length
     :return: percentage table
     """
-    cummean = np.add.accumulate(data, axis=1) / np.arange(1, data_len + 1)
     true_false_table = abs(cummean - 0.25) >= eps
-    return true_false_table.sum(axis=0) / exp_number
+    return np.count_nonzero(true_false_table, axis=0) / exp_number
 
 
-def question_16_bc(data, epsilons, data_len):
+def question_16_bc():
     """
     Question 16 b,
     :param data:
     :return:
     """
     variance = 0.1875
-    for eps in epsilons:
+    cummean = np.add.accumulate(ndata, axis=1) / np.arange(1, data_len + 1)
+    for eps in epsilon:
         fig, ax = plt.subplots()  # Create a figure containing a single axes.
         chebyshev = [min(variance/(x*(eps**2)), 1) for x in range(1, 1001)]
         hoeffding = [min(2*math.exp(-2*x*(eps**2)), 1) for x in range(1, 1001)]
-        percentage = create_pecentage_c(data, eps, data_len)
+        percentage = create_pecentage_c(eps, cummean)
         ax.plot(range(1, 1001), chebyshev, label="chebyshev bound")  # plot 1
         ax.plot(range(1, 1001), hoeffding, label="hoeffding bound")  # plot 1
         ax.plot(range(1, 1001), percentage, label="percentage satisfying event")  # plot 1
         ax.set_xlabel("Toss numbers (m)")
         ax.set_ylabel("Upper Bound")
         ax.legend()
-        ax.set_ylim(ymin=0, ymax=1.01)
-        ax.set_xlim(xmin=0, xmax=1000)
+        ax.set_ylim(bottom=0, top=1.01)
+        ax.set_xlim(left=0, right=1000)
         plt.grid(color='#999999', linestyle='--', alpha=0.3)
         ax.set_title("Q16b: epsilon = " + str(eps))
         fig.show()
@@ -237,5 +235,5 @@ if __name__ == "__main__":
     data_len = 1000  # 1000
     ndata = np.random.binomial(1, 0.25, (exp_number, data_len))
     epsilon = [0.5, 0.25, 0.1, 0.01, 0.001]
-    question_16_a(data)
-    question_16_bc(ndata, epsilon, data_len)
+    question_16_a()
+    question_16_bc()

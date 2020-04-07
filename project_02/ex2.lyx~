@@ -1,0 +1,1128 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass heb-article
+\use_default_options true
+\maintain_unincluded_children false
+\language hebrew
+\language_package default
+\inputencoding cp1255
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\size huge
+\color orange
+מבוא ללמידת מכונה
+\color inherit
+ - תרגיל 2
+\end_layout
+
+\begin_layout Author
+
+\series bold
+מגיש
+\series default
+: יואב לוי
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset Formula $\text{Solutions of the Normal Equations}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+יש להוכיח 
+\begin_inset Formula $Ker\left(X^{T}\right)=Ker\left(XX^{T}\right)$
+\end_inset
+
+, אראה זאת בעזרת הכלה דו-כיוונית.
+\end_layout
+
+\begin_layout Itemize
+
+\color red
+\begin_inset Formula $Ker\left(X^{T}\right)\subseteq Ker\left(XX^{T}\right)$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+יהי וקטור 
+\begin_inset Formula $w\in Ker\left(X^{T}\right)$
+\end_inset
+
+ מתקיים, 
+\begin_inset Formula 
+\[
+XX^{T}w=X\vec{0}=\vec{0}\implies w\in Ker\left(XX^{T}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\color red
+\begin_inset Formula $Ker\left(X^{T}\right)\supseteq Ker\left(XX^{T}\right)$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+יהי וקטור 
+\begin_inset Formula $w\in Ker\left(XX^{T}\right):$
+\end_inset
+
+ )נסמן ב-
+\begin_inset Formula $\smiley$
+\end_inset
+
+(, נשים לב כי בעזרת פירוק ה-
+\begin_inset Formula $\text{SVD}$
+\end_inset
+
+ נוכל לרשום את המטריצות הבאות כך:
+\end_layout
+
+\begin_layout Standard
+קיימות מטריצות 
+\begin_inset Formula $U,V$
+\end_inset
+
+ אורתוגונליות ומטריציה 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ 
+\series bold
+ריבועית אלכסונית
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+X=U\Sigma V^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+X^{T}=V\Sigma^{T}U^{T}\overset{\Sigma\ \text{is squared mat}}{=}V\Sigma U^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+XX^{T}=U\Sigma^{2}U^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת, נשים לב שמתקיים
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+XX^{T}w=U\Sigma^{2}U^{T}w\overset{\smiley}{=}\vec{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\color teal
+למה 
+\begin_inset Formula $0.1$
+\end_inset
+
+ - בהינתן מטריצה אורתוגונלית 
+\begin_inset Formula $U\in M_{n\times n}\left(\mathbb{R}\right)$
+\end_inset
+
+ הפיכה )תכונה של מטריצות אורתוגונליות(
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\color teal
+אז 
+\begin_inset Formula $dim\left(Ker\left(U^{T}\right)\right)=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\bar under
+\color teal
+הוכחת למה 
+\begin_inset Formula $0.1$
+\end_inset
+
+
+\bar default
+:
+\end_layout
+
+\begin_layout Standard
+
+\color teal
+ראשית מהגדרת ההפיכות נובע כי 
+\begin_inset Formula $dim\left(Ker\left(U\right)\right)=0$
+\end_inset
+
+, מלינארית אנו יודעים שמימד מרחב השורות שווה למימד 
+\end_layout
+
+\begin_layout Standard
+
+\color teal
+מרחב העמודות של מטריצה.
+\end_layout
+
+\begin_layout Standard
+
+\color teal
+בנוסף אנחנו יודעים כי מימד מרחב השורות של 
+\begin_inset Formula $U$
+\end_inset
+
+ הוא 
+\begin_inset Formula $dim\left(Im\left(U\right)\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\color teal
+והוא כאמור שווה למימד מרחב השורות של 
+\begin_inset Formula $U^{T}$
+\end_inset
+
+.
+ נשים לב שלפי משפט המימדים נקבל:
+\end_layout
+
+\begin_layout Standard
+
+\color teal
+\begin_inset Formula 
+\[
+dim\left(Im\left(U\right)\right)+dim\left(Ker\left(U\right)\right)=n
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color teal
+ולכן גם:
+\end_layout
+
+\begin_layout Standard
+
+\color teal
+\begin_inset Formula 
+\[
+dim\left(Im\left(U^{T}\right)\right)+dim\left(Ker\left(U^{T}\right)\right)=n\iff dim\left(Ker\left(U^{T}\right)\right)=n-dim\left(Im\left(U\right)\right)=dim\left(Ker\left(U\right)\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+
+\color teal
+\begin_inset Formula $\blacksquare$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת נחזור למשוואה 
+\begin_inset Formula $XX^{T}w=U\Sigma^{2}U^{T}w\overset{}{=}\vec{0}$
+\end_inset
+
+ ונשים לב שמהלמה 
+\begin_inset Formula $0.1$
+\end_inset
+
+ נקבל ש-
+\begin_inset Formula $U^{T}w\neq0$
+\end_inset
+
+ ואם 
+\begin_inset Formula $\Sigma^{2}U^{T}w\neq0$
+\end_inset
+
+ אז
+\end_layout
+
+\begin_layout Standard
+שוב מלמה 
+\begin_inset Formula $0.1$
+\end_inset
+
+ 
+\begin_inset Formula $U\Sigma^{2}U^{T}w\neq\vec{0}$
+\end_inset
+
+ בסתירה למשוואה שהגענו אליה, ולכן 
+\begin_inset Formula $\Sigma^{2}U^{T}w=\vec{0}$
+\end_inset
+
+ בהכרח.
+\end_layout
+
+\begin_layout Standard
+מכאן שגם 
+\begin_inset Formula $\Sigma U^{T}w=\vec{0}$
+\end_inset
+
+, זאת מכיוון שהמטריצה 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ ריבועית ואלכסונית ולכן להכפיל ווקטור בה זה כמו להכפיל כל קורדינטה של הווקטור
+\end_layout
+
+\begin_layout Standard
+פי סקלר )הסקלרים שעל האלכסון(, אם כך שלכפול פי עוד סיגמה זה כמו לכפול פי
+ הסקלר בריבוע פשוט, לכן אם הסקלר אינו אפס מלכתחילה
+\end_layout
+
+\begin_layout Standard
+הוא לא יאפס את הווקטור )אלא אם הווקטור הוא אפס מלכתיחלה(, ומכאן נוכל לקבל
+ בקלות שמתקיים:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+X^{T}w\overset{S.V.D}{=}V\Sigma U^{T}w=\vec{0}
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+כלומר 
+\begin_inset Formula $w\in Ker\left(X^{T}\right)$
+\end_inset
+
+ כנדרש.
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Formula $\blacksquare$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נוכיח את הטענה בעזרת הכלה דו-כיוונית.
+\end_layout
+
+\begin_layout Itemize
+
+\color red
+\begin_inset Formula $Im\left(A^{T}\right)\subseteq Ker\left(A\right)^{\perp}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+יהי 
+\begin_inset Formula $w\in Im\left(A^{T}\right):$
+\end_inset
+
+ כלומר קיים ווקטור 
+\begin_inset Formula $v\in\mathbb{R}^{n}$
+\end_inset
+
+ כך שמתקיים 
+\begin_inset Formula $A^{T}v=w$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+אזי לכל ווקטור 
+\begin_inset Formula $\mu\in Ker\left(A\right)$
+\end_inset
+
+ מתקיים:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\langle w,\mu\right\rangle =\left\langle A^{T}v,\mu\right\rangle \overset{\text{Hermitian adjoint over \ensuremath{\mathbb{R}}}}{=}\left\langle v,A\mu\right\rangle \overset{\mu\in Ker\left(A\right)}{=}\left\langle v,0\right\rangle =0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ולכן 
+\begin_inset Formula $w\in Ker\left(A\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\color red
+\begin_inset Formula $Im\left(A^{T}\right)\supseteq Ker\left(A\right)^{\perp}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נניח בשלילה שעבור ווקטור 
+\begin_inset Formula $w\notin Im\left(A^{T}\right)$
+\end_inset
+
+ ועלינו להראות כי 
+\begin_inset Formula $w\notin Ker\text{\left(A\right)}^{\perp}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+כלומר עלינו להראות כי קיים 
+\begin_inset Formula $v\in Ker\left(A\right)$
+\end_inset
+
+ כך שמתקיים 
+\begin_inset Formula $\left\langle w,v\right\rangle \neq0$
+\end_inset
+
+.
+ נגדיר את 
+\begin_inset Formula $\text{v\ensuremath{\in Im\left(A^{T}\right)^{\perp}}}$
+\end_inset
+
+ ונראה כי
+\end_layout
+
+\begin_layout Standard
+מכיוון ש-
+\begin_inset Formula $w\notin Im\left(A^{T}\right)$
+\end_inset
+
+ אזי 
+\begin_inset Formula $w\in Im\left(A^{T}\right)^{\perp}$
+\end_inset
+
+ כלומר 
+\begin_inset Formula $\left\langle w,v\right\rangle \neq0$
+\end_inset
+
+ וגם
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\langle v,\overset{\in Im\left(A^{T}\right)}{\overbrace{A^{T}Av}}\right\rangle =0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ולכן,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\Vert Av\right\Vert ^{2}=\left\langle Av,Av\right\rangle =\left\langle v,A^{T}Av\right\rangle =0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כלומר 
+\begin_inset Formula $Av=0$
+\end_inset
+
+ ז
+\begin_inset Quotes erd
+\end_inset
+
+א 
+\begin_inset Formula $v\in Ker\left(A\right)$
+\end_inset
+
+ ולכן 
+\begin_inset Formula $Im\left(A^{T}\right)\supseteq Ker\left(A\right)^{\perp}$
+\end_inset
+
+ כנדרש.
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Formula $\blacksquare$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+3
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+בהינתן שהמטרציה 
+\begin_inset Formula $X^{T}$
+\end_inset
+
+ סינגולרית צריך להוכיח 
+\begin_inset Formula $X^{T}w=y\ \text{has \ensuremath{\infty} solutions }\iff y\perp Ker\left(X\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(\Leftarrow\right)$
+\end_inset
+
+ אנחנו יודעים שיהיו למערכת המשוואות 
+\begin_inset Formula $X^{T}w=y$
+\end_inset
+
+ או
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+או 
+\begin_inset Formula $\infty$
+\end_inset
+
+ פתרונות.
+\end_layout
+
+\begin_layout Standard
+כעת, אם נראה ש-
+\begin_inset Formula $y\in Im\left(X^{T}\right)$
+\end_inset
+
+ אז זה אומר שקיים פתרון, ולכן יש 
+\begin_inset Formula $\infty$
+\end_inset
+
+ פתרונות.
+\end_layout
+
+\begin_layout Standard
+נשים לב כי אנחנו מניחים שמתקיים 
+\begin_inset Formula $y\perp Ker\left(X\right)$
+\end_inset
+
+, כלומר 
+\begin_inset Formula $y\in Ker\left(A\right)^{\perp}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+כעת נעזר בשאלה הקודמת ובה הראינו את השקילות 
+\begin_inset Formula $y\in Ker\left(A\right)^{\perp}=Im\left(X^{T}\right)$
+\end_inset
+
+, ולכן 
+\begin_inset Formula $y$
+\end_inset
+
+ אכן בתמונה ולמערכת
+\end_layout
+
+\begin_layout Standard
+יש 
+\begin_inset Formula $\infty$
+\end_inset
+
+ פתרונות.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(\Rightarrow\right)$
+\end_inset
+
+ כעת נניח שלמערכת יש 
+\begin_inset Formula $\infty$
+\end_inset
+
+ פתרונות.
+ נסמן פתרון אחד ב-
+\begin_inset Formula $w$
+\end_inset
+
+ ונשים לב כי 
+\begin_inset Formula $y=X^{T}w$
+\end_inset
+
+, כעת לכל ווקטור 
+\begin_inset Formula $v\in Ker\left(X\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\langle y,v\right\rangle =\left\langle X^{T}w,v\right\rangle =\left\langle w,Xv\right\rangle \overset{v\in Ker\left(X\right)}{=}\left\langle w,0\right\rangle =0\implies y\perp Ker\left(X\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כנדרש.
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Formula $\blacksquare$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+4
+\numeric off
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+אם 
+\begin_inset Formula $XX^{T}$
+\end_inset
+
+ היא הפיכה 
+\begin_inset Formula $\left(\text{Invertible}\right)$
+\end_inset
+
+ אזי מתקיים,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+XX^{T}w=Xy\iff\left(XX^{T}\right)^{-1}XX^{T}w=\left(XX^{T}\right)^{-1}Xy\iff w=\left(X^{T}\right)^{-1}y
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+אחרת אם 
+\begin_inset Formula $XX^{T}$
+\end_inset
+
+ סינגולרית )אינה הפיכה( אזי או שיש
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+0
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+פתרונות או שיש 
+\begin_inset Formula $\infty$
+\end_inset
+
+, אם אצליח להראות כי 
+\begin_inset Formula $Xy\in Im\left(XX^{T}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+הרי שיש 
+\begin_inset Formula $\infty$
+\end_inset
+
+ פתרונות למערכת המשוואות.
+\end_layout
+
+\begin_layout Standard
+נשים לב שניתן להמיר את הבעיה לכך שצריך להראות כי 
+\begin_inset Formula $Xy\in Ker\left(XX^{T}\right)^{\perp}$
+\end_inset
+
+ מתוך הלמה שהוכחנו בשאלה השנייה.
+\end_layout
+
+\begin_layout Standard
+כעת, מהלמה שהוכחנו בשאלה הראשונה ניתן להמיר שוב את הבעיה לכך שצריך להראות
+ כי 
+\begin_inset Formula $Xy\in Ker\left(X^{T}\right)^{\perp}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ואת זה קל לנו כבר לפתור, יהי 
+\begin_inset Formula $v\in Ker\left(X^{T}\right)$
+\end_inset
+
+ נשים לב כי מתקיים
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\langle Xy,v\right\rangle =\left\langle y,X^{T}v\right\rangle =\left\langle y,0\right\rangle =0
+\]
+
+\end_inset
+
+ לכן 
+\begin_inset Formula $Xy\in Ker\left(X^{T}\right)^{\perp}=Ker\left(XX^{T}\right)^{\perp}=Im\left(XX^{T}\right)$
+\end_inset
+
+ כלומר 
+\begin_inset Formula $Xy\in Im\left(XX^{T}\right)$
+\end_inset
+
+ כנדרש.
+\end_layout
+
+\begin_layout Standard
+ולכן באם המטריצה 
+\begin_inset Formula $XX^{T}$
+\end_inset
+
+ סינגולרית אז למערכת המשוואות יש 
+\begin_inset Formula $\infty$
+\end_inset
+
+ פתרונות.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset Formula $\text{Projection Matrices}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\end_body
+\end_document

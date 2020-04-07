@@ -1121,7 +1121,72 @@ f(\sigma)=\sum_{i=1}^{n}\sigma_{i}u_{i}u_{i}^{T}x\qquad\text{where }u_{i}\text{ 
 \begin_layout Standard
 \begin_inset Formula 
 \[
-\nabla h=\left(\sigma\right)\left(f\left(\sigma\right)-y\right)^{T}\nabla f\left(\sigma\right)
+h\left(\sigma\right)=\frac{1}{2}\left\Vert f\left(\sigma\right)-y\right\Vert ^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+אגדיר את הפונקציות הבאות:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+g\left(x\right)=\left\Vert x\right\Vert ^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w\left(\sigma\right)=f\left(\sigma\right)-y
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נשים לב כי מתקיים 
+\begin_inset Formula $h\left(\sigma\right)=\frac{1}{2}g\ocircle\left(w\left(\sigma\right)\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+כעת, לפי כלל השרשרת שראינו בתרגול על יעקוביאן )=לגרדיאנט בפונקציות מווקטור
+ לסקלר(
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+J_{\sigma}\left(\frac{1}{2}g\ocircle\left(w\left(\sigma\right)\right)\right)=\frac{1}{2}J_{\sigma}\left(g\ocircle\left(w\left(\sigma\right)\right)\right)\overset{\text{chain rule}}{=}\frac{1}{2}\overset{\blacktriangledown}{\overbrace{J_{w\left(\sigma\right)}\left(g\right)}}\cdot\overset{\blacktriangle}{\overbrace{J_{\sigma}\left(w\right)}}\overset{}{=}\frac{1}{2}\cdot\overset{\blacktriangledown}{\overbrace{2\left(f\left(\sigma\right)-y\right)^{T}}}\cdot\overset{\blacktriangle}{\overbrace{\nabla f\left(\sigma\right)}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כלומר,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla h\left(\sigma\right)=\left(f\left(\sigma\right)-y\right)^{T}\nabla f\left(\sigma\right)
 \]
 
 \end_inset
@@ -1165,6 +1230,14 @@ f(\sigma)=\sum_{i=1}^{n}\sigma_{i}u_{i}u_{i}^{T}x\qquad\text{where }u_{i}\text{ 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+חישוב היעקוביאן של פונקציית ה-
+\begin_inset Formula $\text{softmax}$
+\end_inset
+
+ )נשים לב שהמשכתי את השלבים הראשונים שהופיעו בתרגול ולכן רוב המלל הוסר(
 \end_layout
 
 \begin_layout Standard

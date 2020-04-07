@@ -1045,7 +1045,37 @@ b_{k+1}=\frac{C_{0}b_{k}}{\left\Vert C_{0}b_{k}\right\Vert }=\frac{C_{0}^{k+1}b_
 \end_layout
 
 \begin_layout Standard
-בלה בלה
+\begin_inset Formula 
+\[
+f(\sigma)=\sum_{i=1}^{n}\sigma_{i}u_{i}u_{i}^{T}x\qquad\text{where }u_{i}\text{ is the i'th column of matrix U}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת, איבר בשורה ה-
+\begin_inset Formula $k$
+\end_inset
+
+ ובעמודה ה-
+\begin_inset Formula $i$
+\end_inset
+
+ במטריצת היעקוביאן תראה כך:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial f_{k}\left(\sigma_{\text{const}}\right)}{\partial\sigma_{i}}=\left[u_{i}u_{i}^{T}x\right]_{k}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph*
@@ -1089,7 +1119,79 @@ b_{k+1}=\frac{C_{0}b_{k}}{\left\Vert C_{0}b_{k}\right\Vert }=\frac{C_{0}^{k+1}b_
 \end_layout
 
 \begin_layout Standard
-בלה בלה
+\begin_inset Formula 
+\[
+h\left(\sigma\right)=\frac{1}{2}\left\Vert f\left(\sigma\right)-y\right\Vert ^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+אגדיר את הפונקציות הבאות:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+g\left(x\right)=\left\Vert x\right\Vert ^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w\left(\sigma\right)=f\left(\sigma\right)-y
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נשים לב כי מתקיים 
+\begin_inset Formula $h\left(\sigma\right)=\frac{1}{2}g\ocircle\left(w\left(\sigma\right)\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+כעת, לפי כלל השרשרת שראינו בתרגול על יעקוביאן )=לגרדיאנט בפונקציות מווקטור
+ לסקלר(
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+J_{\sigma}\left(\frac{1}{2}g\ocircle\left(w\left(\sigma\right)\right)\right)=\frac{1}{2}J_{\sigma}\left(g\ocircle\left(w\left(\sigma\right)\right)\right)\overset{\text{chain rule}}{=}\frac{1}{2}\overset{\blacktriangledown}{\overbrace{J_{w\left(\sigma\right)}\left(g\right)}}\cdot\overset{\blacktriangle}{\overbrace{J_{\sigma}\left(w\right)}}\overset{}{=}\frac{1}{2}\cdot\overset{\blacktriangledown}{\overbrace{2\left(f\left(\sigma\right)-y\right)^{T}}}\cdot\overset{\blacktriangle}{\overbrace{\nabla f\left(\sigma\right)}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כלומר,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla h\left(\sigma\right)=\left(f\left(\sigma\right)-y\right)^{T}\nabla f\left(\sigma\right)
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph*
@@ -1131,7 +1233,22 @@ b_{k+1}=\frac{C_{0}b_{k}}{\left\Vert C_{0}b_{k}\right\Vert }=\frac{C_{0}^{k+1}b_
 \end_layout
 
 \begin_layout Standard
-בלה בלה
+חישוב היעקוביאן של פונקציית ה-
+\begin_inset Formula $\text{softmax}$
+\end_inset
+
+ )נשים לב המשכתי את השלבים הראשונים שהופיעו בתרגול ולכן רוב המלל הוסר(
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial g_{i}\left(z\right)}{\partial z_{j}}=g_{i}(z)\left(\delta_{ij}-g_{j}\left(z\right)\right)
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph*
