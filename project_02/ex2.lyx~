@@ -94,7 +94,11 @@
 \series bold
 מגיש
 \series default
-: יואב לוי
+: 
+\bar under
+יואב לוי 
+\numeric on
+314963257
 \end_layout
 
 \begin_layout Subsection*
@@ -1174,7 +1178,330 @@ XX^{T}w=Xy\iff\left(XX^{T}\right)^{-1}XX^{T}w=\left(XX^{T}\right)^{-1}Xy\iff w=\
 \end_layout
 
 \begin_layout Standard
-שלום
+מטריצת ההטלה על 
+\begin_inset Formula $V\subseteq\mathbb{R}^{d}$
+\end_inset
+
+ מוגדרת ע
+\begin_inset Quotes erd
+\end_inset
+
+י המכפלה החיצונית הבאה, 
+\begin_inset Formula $P=\sum_{i=1}^{k}v_{i}\cdot v_{i}^{T}$
+\end_inset
+
+ )כאשר 
+\begin_inset Formula $v_{1},\dots,v_{k}$
+\end_inset
+
+ בסיס אורתונורמלי(.
+\end_layout
+
+\begin_layout Standard
+מכאן שכל איבר בסכום הוא מטריצה בגודל 
+\begin_inset Formula $d\times d$
+\end_inset
+
+, אם אראה שכל מטריצה כזו היא סימטרית הרי ש-
+\begin_inset Formula $P$
+\end_inset
+
+ עצמה סימטרית, כתוצאה של חיבור
+\end_layout
+
+\begin_layout Standard
+של מטריצות סימטריות.
+\end_layout
+
+\begin_layout Standard
+לכן, נתבונן במחובר כללי בסכום )למשל כאשר 
+\begin_inset Formula $i=j$
+\end_inset
+
+(
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{v}_{j}\coloneqq\left[\begin{array}{c}
+v_{j,1}\\
+v_{j,2}\\
+\vdots\\
+v_{j,d}
+\end{array}\right]\in\mathbb{R}^{d}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{v}_{j}\cdot\vec{v}_{j}^{T}=\left[\begin{array}{c}
+v_{j,1}\\
+v_{j,2}\\
+\vdots\\
+v_{j,d}
+\end{array}\right]\cdot\left[\begin{array}{cccc}
+v_{j,1} & v_{j,2} & \dots & v_{j,d}\end{array}\right]=\left(\begin{array}{cccc}
+\left(v_{j,1}\right)^{2} & \left(v_{j,1}\cdot v_{j,2}\right) & \cdots & \left(v_{j,1}\cdot v_{j,d}\right)\\
+\left(v_{j,2}\cdot v_{j,1}\right) & \left(v_{j,2}\right)^{2} & \ddots & \vdots\\
+\vdots & \ddots & \ddots & \vdots\\
+\left(v_{j,d}\cdot v_{j,1}\right) & \left(v_{j,d}\cdot v_{j,2}\right) & \cdots & \left(v_{j,d}\right)^{2}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נסמן את המטריצה שלעיל ב-
+\begin_inset Formula $A$
+\end_inset
+
+ וכך נוכל לכתוב בכתיב קומפקטי:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A_{\text{x,y}}=\left(v_{j,x}\cdot v_{j,y}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+לכן מכיוון שהכפל קומוטטיבי אז המטריצה הזאת היא סימטרית, וזה גורר שהמטריצה
+ המקורית 
+\begin_inset Formula $P$
+\end_inset
+
+ סימטרית גם כן.
+\end_layout
+
+\begin_layout Subparagraph*
+\begin_inset Formula $(b)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+ראשית אוכיח שהערכים העצמיים היחידים של מטריצת ההטלה הם
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+,
+\numeric on
+0
+\numeric off
+.
+\end_layout
+
+\begin_layout Standard
+נשים לב שמתקיים 
+\begin_inset Formula $P^{2}=P$
+\end_inset
+
+ כי 
+\begin_inset Formula 
+\[
+P^{2}=\left(\sum_{i=1}^{k}v_{i}\cdot v_{i}^{T}\right)^{2}=\left(\left(v_{1}\cdot v_{1}^{T}\right)+\dots+\left(v_{k}\cdot v_{k}^{T}\right)\right)^{2}=\sum_{i=j}\left(v_{i}\cdot v_{i}^{T}\right)\cdot\left(v_{j}\cdot v_{j}^{T}\right)+2\sum_{i\neq j}\left(v_{i}\cdot v_{i}^{T}\right)\left(v_{j}\cdot v_{j}^{T}\right)=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overset{\text{\left(v_{1},\dots,v_{k}\text{ orthonormal basis}\right)}}{=}\sum_{i=1}^{k}v_{i}\cdot v_{i}^{T}=P
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת, עבור ווקטור עצמי 
+\begin_inset Formula $0\neq v\in V$
+\end_inset
+
+ נקבל,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\exists\lambda\in\mathbb{R}\ s.t.\ Pv=\lambda v
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P^{2}v=Pv=\lambda v
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P^{2}v=P\left(\lambda v\right)=\lambda Pv=\lambda^{2}v
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Downarrow
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\lambda^{2}v=\lambda v\iff\lambda^{2}v-\lambda v=0\iff\lambda v\left(\lambda-1\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כלומר 
+\begin_inset Formula $\lambda=0\lor\lambda=1$
+\end_inset
+
+, כנדרש.
+\end_layout
+
+\begin_layout Standard
+כעת, נשים לב שעבורים הווקטורים 
+\begin_inset Formula $v_{1},\dots,v_{k}$
+\end_inset
+
+ הערכים העצמיים המשוייכים להם הם
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\forall j\in\left[k\right]:\ P\text{\left(v_{j}\right)}=\sum_{i=1}^{k}v_{i}\cdot v_{i}^{T}\cdot\left(v_{j}\right)\overset{\left(v_{1},\dots,v_{k}\text{ orthonormal basis}\right)}{=}\sum_{i=1}^{k}v_{i}\overset{\text{Kronecker delta}}{\overbrace{\delta_{i,j}}}=1\cdot v_{j}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כנדרש.
+\end_layout
+
+\begin_layout Subparagraph*
+\begin_inset Formula $(c)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+יהי 
+\begin_inset Formula $v\in V$
+\end_inset
+
+, כלומר ניתן לייצגו כסופרפוזיציה של הבסיס האורתונורמלי של 
+\begin_inset Formula $V$
+\end_inset
+
+ הנתון לנו 
+\begin_inset Formula $B=\left(v_{1},\dots,v_{k}\right)$
+\end_inset
+
+.
 \end_layout
 
 \end_body

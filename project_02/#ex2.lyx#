@@ -94,7 +94,11 @@
 \series bold
 מגיש
 \series default
-: יואב לוי
+: 
+\bar under
+יואב לוי 
+\numeric on
+314963257
 \end_layout
 
 \begin_layout Subsection*
@@ -1291,6 +1295,298 @@ A_{\text{x,y}}=\left(v_{j,x}\cdot v_{j,y}\right)
 \end_layout
 
 \begin_layout Standard
+ראשית אוכיח שהערכים העצמיים היחידים של מטריצת ההטלה הם
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+,
+\numeric on
+0
+\numeric off
+.
+\end_layout
+
+\begin_layout Standard
+נשים לב שמתקיים 
+\begin_inset Formula $P^{2}=P$
+\end_inset
+
+ כי 
+\begin_inset Formula 
+\[
+P^{2}=\left(\sum_{i=1}^{k}v_{i}\cdot v_{i}^{T}\right)^{2}=\left(\left(v_{1}\cdot v_{1}^{T}\right)+\dots+\left(v_{k}\cdot v_{k}^{T}\right)\right)^{2}=\sum_{i=j}\left(v_{i}\cdot v_{i}^{T}\right)\cdot\left(v_{j}\cdot v_{j}^{T}\right)+2\sum_{i\neq j}\left(v_{i}\cdot v_{i}^{T}\right)\left(v_{j}\cdot v_{j}^{T}\right)=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overset{\text{\left(v_{1},\dots,v_{k}\text{ orthonormal basis}\right)}}{=}\sum_{i=1}^{k}v_{i}\cdot v_{i}^{T}=P
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת, עבור ווקטור עצמי 
+\begin_inset Formula $0\neq v\in V$
+\end_inset
+
+ נקבל,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\exists\lambda\in\mathbb{R}\ s.t.\ Pv=\lambda v
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P^{2}v=Pv=\lambda v
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+P^{2}v=P\left(\lambda v\right)=\lambda Pv=\lambda^{2}v
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Downarrow
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\lambda^{2}v=\lambda v\iff\lambda^{2}v-\lambda v=0\iff\lambda v\left(\lambda-1\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כלומר 
+\begin_inset Formula $\lambda=0\lor\lambda=1$
+\end_inset
+
+, כנדרש.
+\end_layout
+
+\begin_layout Standard
+כעת, נשים לב שעבורים הווקטורים 
+\begin_inset Formula $v_{1},\dots,v_{k}$
+\end_inset
+
+ הערכים העצמיים המשוייכים להם הם
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\forall j\in\left[k\right]:\ P\text{\left(v_{j}\right)}=\sum_{i=1}^{k}v_{i}\cdot v_{i}^{T}\cdot\left(v_{j}\right)\overset{\left(v_{1},\dots,v_{k}\text{ orthonormal basis}\right)}{=}\sum_{i=1}^{k}v_{i}\overset{\text{Kronecker delta}}{\overbrace{\delta_{i,j}}}=1\cdot v_{j}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כנדרש.
+\end_layout
+
+\begin_layout Subparagraph*
+\begin_inset Formula $(c)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+יהי 
+\begin_inset Formula $v\in V$
+\end_inset
+
+, כלומר ניתן לייצגו כסופרפוזיציה של הבסיס האורתונורמלי של 
+\begin_inset Formula $V$
+\end_inset
+
+ הנתון לנו 
+\begin_inset Formula $B=\left(v_{1},\dots,v_{k}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+בהינתן סקלרים 
+\begin_inset Formula $c_{1},\dots,c_{k}\in\mathbb{R}$
+\end_inset
+
+ נקבל:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v=c_{1}\cdot v_{1}+c_{2}\cdot v_{2}+\dots+c_{k}\cdot v_{k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Pv=P\left(c_{1}\cdot v_{1}+c_{2}\cdot v_{2}+\dots+c_{k}\cdot v_{k}\right)=\left(\sum_{i=1}^{k}v_{i}\cdot v_{i}^{T}\right)\cdot\left(\sum_{i=1}^{k}c_{i}\cdot v_{i}\right)=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\sum_{j=1}^{k}\sum_{i=1}^{k}v_{j}\cdot\overset{\delta_{i,j}}{\overbrace{v_{j}^{T}\cdot v_{i}}}\cdot c_{i}=\sum_{i=1}^{k}c_{i}\cdot v_{i}=v
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כנדרש.
+\end_layout
+
+\begin_layout Subparagraph*
+\begin_inset Formula $(d)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+הוכח כבר בסעיף ב' בשאלה זו )
+\begin_inset Graphics
+	filename asdf.png
+	lyxscale 20
+	scale 20
+
+\end_inset
+
+(
+\end_layout
+
+\begin_layout Subparagraph*
+\begin_inset Formula $(e)$
+\end_inset
+
+ 
+\begin_inset Formula $\left(I-P\right)P=P-P^{2}\overset{(d)}{=}P-P=\boldsymbol{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset Formula $\text{Least Squares}$
+\end_inset
+
 
 \end_layout
 
