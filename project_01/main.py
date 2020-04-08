@@ -20,7 +20,7 @@ def main():
     labels = ["Arithmetic", "Empty function call", "System call"]
     linux = [0.2, 0.2, 39.8]
     container = [0.2, 0.2, 41]
-    vm = [0.9, 4.7, 75.1]
+    vm = [0.9, 47.2, 701.1]
     x = np.arange(len(labels))  # the label locations
     width = 0.35  # the width of the bars
 

@@ -1174,7 +1174,112 @@ XX^{T}w=Xy\iff\left(XX^{T}\right)^{-1}XX^{T}w=\left(XX^{T}\right)^{-1}Xy\iff w=\
 \end_layout
 
 \begin_layout Standard
-שלום
+מטריצת ההטלה על 
+\begin_inset Formula $V\subseteq\mathbb{R}^{d}$
+\end_inset
+
+ מוגדרת ע
+\begin_inset Quotes erd
+\end_inset
+
+י המכפלה החיצונית הבאה, 
+\begin_inset Formula $P=\sum_{i=1}^{k}v_{i}\cdot v_{i}^{T}$
+\end_inset
+
+ )כאשר 
+\begin_inset Formula $v_{1},\dots,v_{k}$
+\end_inset
+
+ בסיס אורתונורמלי(.
+\end_layout
+
+\begin_layout Standard
+מכאן שכל איבר בסכום הוא מטריצה בגודל 
+\begin_inset Formula $d\times d$
+\end_inset
+
+, אם אראה שכל מטריצה כזו היא סימטרית הרי ש-
+\begin_inset Formula $P$
+\end_inset
+
+ עצמה סימטרית, כתוצאה של חיבור
+\end_layout
+
+\begin_layout Standard
+של מטריצות סימטריות.
+\end_layout
+
+\begin_layout Standard
+לכן, נתבונן במחובר כללי בסכום )למשל כאשר 
+\begin_inset Formula $i=j$
+\end_inset
+
+(
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{v}_{j}\coloneqq\left[\begin{array}{c}
+v_{j,1}\\
+v_{j,2}\\
+\vdots\\
+v_{j,d}
+\end{array}\right]\in\mathbb{R}^{d}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\vec{v}_{j}\cdot\vec{v}_{j}^{T}=\left[\begin{array}{c}
+v_{j,1}\\
+v_{j,2}\\
+\vdots\\
+v_{j,d}
+\end{array}\right]\cdot\left[\begin{array}{cccc}
+v_{j,1} & v_{j,2} & \dots & v_{j,d}\end{array}\right]=\left(\begin{array}{cccc}
+\left(v_{j,1}\right)^{2} & \left(v_{j,1}\cdot v_{j,2}\right) & \cdots & \left(v_{j,1}\cdot v_{j,d}\right)\\
+\left(v_{j,2}\cdot v_{j,1}\right) & \left(v_{j,2}\right)^{2} & \ddots & \vdots\\
+\vdots & \ddots & \ddots & \vdots\\
+\left(v_{j,d}\cdot v_{j,1}\right) & \left(v_{j,d}\cdot v_{j,2}\right) & \cdots & \left(v_{j,d}\right)^{2}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נסמן את המטריצה שלעיל ב-
+\begin_inset Formula $A$
+\end_inset
+
+ וכך נוכל לכתוב בכתיב קומפקטי:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A_{\text{x,y}}=\left(v_{j,x}\cdot v_{j,y}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+לכן מכיוון שהכפל קומוטטיבי אז המטריצה הזאת היא סימטרית.
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \end_body

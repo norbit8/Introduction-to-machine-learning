@@ -1107,6 +1107,14 @@ XX^{T}w=Xy\iff\left(XX^{T}\right)^{-1}XX^{T}w=\left(XX^{T}\right)^{-1}Xy\iff w=\
 
 \end_deeper
 \begin_layout Standard
+\align left
+\begin_inset Formula $\blacksquare$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula $ $
 \end_inset
 
@@ -1120,8 +1128,53 @@ XX^{T}w=Xy\iff\left(XX^{T}\right)^{-1}XX^{T}w=\left(XX^{T}\right)^{-1}Xy\iff w=\
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+5
+\end_layout
 
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subparagraph*
+\begin_inset Formula $(a)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+שלום
 \end_layout
 
 \end_body
