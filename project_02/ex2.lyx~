@@ -1504,5 +1504,384 @@ P^{2}v=P\left(\lambda v\right)=\lambda Pv=\lambda^{2}v
 .
 \end_layout
 
+\begin_layout Standard
+בהינתן סקלרים 
+\begin_inset Formula $c_{1},\dots,c_{k}\in\mathbb{R}$
+\end_inset
+
+ נקבל:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+v=c_{1}\cdot v_{1}+c_{2}\cdot v_{2}+\dots+c_{k}\cdot v_{k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Pv=P\left(c_{1}\cdot v_{1}+c_{2}\cdot v_{2}+\dots+c_{k}\cdot v_{k}\right)=\left(\sum_{i=1}^{k}v_{i}\cdot v_{i}^{T}\right)\cdot\left(\sum_{i=1}^{k}c_{i}\cdot v_{i}\right)=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\sum_{j=1}^{k}\sum_{i=1}^{k}v_{j}\cdot\overset{\delta_{i,j}}{\overbrace{v_{j}^{T}\cdot v_{i}}}\cdot c_{i}=\sum_{i=1}^{k}c_{i}\cdot v_{i}=v
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כנדרש.
+\end_layout
+
+\begin_layout Subparagraph*
+\begin_inset Formula $(d)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+הוכח כבר בסעיף ב' בשאלה זו )
+\begin_inset Graphics
+	filename asdf.png
+	lyxscale 20
+	scale 20
+
+\end_inset
+
+(
+\end_layout
+
+\begin_layout Subparagraph*
+\begin_inset Formula $(e)$
+\end_inset
+
+ 
+\begin_inset Formula $\left(I-P\right)P=P-P^{2}\overset{(d)}{=}P-P=\boldsymbol{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset Formula $\text{Least Squares}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+שאלה 
+\numeric on
+6
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+\left(XX^{T}\right)^{-1}=\left(U\Sigma\underset{=0\text{ because orthonormal matrix}}{\underbrace{V^{T}V}}\Sigma^{T}U^{T}\right)^{-1}=\left(UDU^{T}\right)^{-1}=UD^{-1}U^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+כאשר השיוויון האחרון נובע מהעובדה שההופכי של מטריצות אורתוגונליות הוא המטריצה
+ המשוחלפת.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+\left(XX^{T}\right)^{-1}X=UD^{-1}U^{T}X=UD^{-1}U^{T}U\Sigma V^{T}=UD^{-1}\Sigma V^{T}=\left(V\overset{\boldsymbol{\left(\Game\right)}}{\overbrace{\Sigma^{T}\Sigma^{T}\left(\Sigma\Sigma^{T}\right)^{-1}}}U^{T}\right)^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+כעת נעבור לנוטצית אינדקסים, ואגדיר את האופרטור 
+\begin_inset Formula $\dagger$
+\end_inset
+
+ על סקלרים באופן הבא: 
+\begin_inset Formula $\text{\left(\left[\Sigma\right]_{i,j}\right)}^{\dagger}\coloneqq\begin{cases}
+\frac{1}{\left[\Sigma\right]_{i,j}} & \text{if \left[\Sigma\right]_{i,j}\ensuremath{\neq0}}\\
+0 & otherwise
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ונשים לב שמתקיים: 
+\begin_inset Formula $\boldsymbol{\left(\Game\right)}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Sigma^{T}\Sigma^{T}\left(\Sigma\Sigma^{T}\right)^{-1}\overset{\text{Index Notation}}{\implies}\left[\Sigma\right]_{j,i}\cdot\left(\left[\Sigma\right]_{i,j}\cdot\left[\Sigma\right]_{j,i}\right)^{-1}=\left(\left[\Sigma\right]_{i,j}\right)^{\dagger}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ולכן,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(XX^{T}\right)^{-1}X=X^{T\dagger}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כנדרש.
+\end_layout
+
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+7
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ראשית נשים לב שהדרגה של המטריצה 
+\begin_inset Formula $X^{T}\in M_{m\times d}\left(\mathbb{R}\right)$
+\end_inset
+
+ היא המימד הנפרש ע
+\begin_inset Quotes erd
+\end_inset
+
+י הווקטורים 
+\begin_inset Formula $x_{1},\dots,x_{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+כעת, מהשאלה הראשונה בתרגול נובע כי 
+\begin_inset Formula $Ker\left(X^{T}\right)=Ker\left(XX^{T}\right)$
+\end_inset
+
+ ומכיוון ש-
+\begin_inset Formula $XX^{T}$
+\end_inset
+
+ הפיכה אז
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $Ker\left(X^{T}\right)=Ker\left(XX^{T}\right)=0$
+\end_inset
+
+ ולפי משפט המימדים נובע, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Im\left(X^{T}\right)+Ker\left(X^{T}\right)=d\iff Im\left(X^{T}\right)=d
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כלומר, מימד מרחב השורות של 
+\begin_inset Formula $X^{T}$
+\end_inset
+
+ שווה ל-
+\begin_inset Formula $d$
+\end_inset
+
+ כלומר 
+\begin_inset Formula $\text{span}\left\{ x_{1},\dots,x_{m}\right\} =\mathbb{R}^{d}$
+\end_inset
+
+, וזה קורה אם ורק אם
+\end_layout
+
+\begin_layout Standard
+המטריצה 
+\begin_inset Formula $XX^{T}$
+\end_inset
+
+ הפיכה.
+\end_layout
+
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+8
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+מכיוון שכל קורדינטה ב-
+\begin_inset Formula $\hat{w}$
+\end_inset
+
+ היא ייחודית לכל ערך סינגולרי של 
+\begin_inset Formula $X$
+\end_inset
+
+ אז לכל פתרון 
+\begin_inset Formula $\bar{w}$
+\end_inset
+
+ אחר
+\end_layout
+
+\begin_layout Standard
+נקבל, 
+\begin_inset Formula $\bar{w}_{i}=\hat{w}_{i}$
+\end_inset
+
+ עבור כל 
+\begin_inset Formula $i=1,\dots,r$
+\end_inset
+
+, אבל 
+\begin_inset Formula $\forall i\in r+1,\dots,d:\hat{w}_{i}=0$
+\end_inset
+
+ ולכן:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left\Vert \bar{w}\right\Vert ^{2}=\sum_{i=1}^{d}\bar{w}_{i}^{2}=\sum_{i=1}^{r}\bar{w}_{i}^{2}+\sum_{i=r+1}^{d}\bar{w}_{i}^{2}\boldsymbol{\leq}\sum_{i=1}^{r}\bar{w}_{i}^{2}=\sum_{i=1}^{d}\hat{w}_{i}^{2}=\left\Vert \hat{w}\right\Vert ^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document

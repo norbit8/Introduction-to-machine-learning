@@ -9,6 +9,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from scipy.linalg import qr
+
 # ---------------------
 
 
@@ -19,37 +20,37 @@ def get_orthogonal_matrix(dim):
 
 
 def plot_3d(x_y_z: np.array, title: str):
-    '''
+    """
     plot points in 3D
     :param x_y_z: the points. numpy array with shape: 3 X num_samples (first dimension for x, y, z
     coordinate)
-    '''
+    """
     fig = plt.figure()
-    ax = fig.add_subplot(111, projection='3d')
-    ax.scatter(x_y_z[0], x_y_z[1], x_y_z[2], s=1, marker='.', depthshade=False)
+    ax = fig.add_subplot(111, projection="3d")
+    ax.scatter(x_y_z[0], x_y_z[1], x_y_z[2], s=1, marker=".", depthshade=False)
     ax.set_xlim(-5, 5)
     ax.set_ylim(-5, 5)
     ax.set_zlim(-5, 5)
-    ax.set_xlabel('x')
-    ax.set_ylabel('y')
-    ax.set_zlabel('z')
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+    ax.set_zlabel("z")
     ax.set_title(title)
     fig.show()
 
 
 def plot_2d(x_y, title):
-    '''
+    """
     plot points in 2D
     :param x_y_z: the points. numpy array with shape: 2 X num_samples (first dimension for x, y
     coordinate)
-    '''
+    """
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    ax.scatter(x_y[0], x_y[1], s=1, marker='.')
+    ax.scatter(x_y[0], x_y[1], s=1, marker=".")
     ax.set_xlim(-5, 5)
     ax.set_ylim(-5, 5)
-    ax.set_xlabel('x')
-    ax.set_ylabel('y')
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
     ax.set_title(title)
     fig.show()
 
@@ -62,7 +63,7 @@ def estimator_function(data):
     """
     values = []
     for index in range(len(data)):
-        values.append(np.mean(data[:index + 1]))
+        values.append(np.mean(data[: index + 1]))
     return values
 
 
@@ -89,14 +90,24 @@ def plot_q16():
     ax.legend()
     ax.set_ylim(bottom=0, top=1)
     ax.set_xlim(left=0, right=1000)
-    plt.grid(color='#999999', linestyle='--', alpha=0.3)
+    plt.grid(color="#999999", linestyle="--", alpha=0.3)
     ax.set_title("Q16: 5 independent sequences of 1,000 tosses and their mean")
     fig.show()
 
+
 def print_cov_mat(data):
-    cov_mat = np.matmul(np.array([[1/(population - 1), 0, 0], [0, 1/(population - 1), 0],[0, 0, 1/(population - 1)]]),
-                        np.matmul(data, np.transpose(data)))
+    cov_mat = np.matmul(
+        np.array(
+            [
+                [1 / (population - 1), 0, 0],
+                [0, 1 / (population - 1), 0],
+                [0, 0, 1 / (population - 1)],
+            ]
+        ),
+        np.matmul(data, np.transpose(data)),
+    )
     print(cov_mat)
+
 
 def question_11(data):
     """
@@ -104,7 +115,9 @@ def question_11(data):
     :param data: data
     :return: nothing
     """
-    plot_3d(data, "Q11: Random points gen by the identity matrix as the cov matrix")  # Q11
+    plot_3d(
+        data, "Q11: Random points gen by the identity matrix as the cov matrix"
+    )  # Q11
 
 
 def question_12(data):
@@ -129,7 +142,7 @@ def question_13(data):
     :return: nothing.
     """
     print("------ Randomly created orthogonal Matrix ------")
-    orthogonal_mat = get_orthogonal_matrix(3) # Randomly orthogonal matrix
+    orthogonal_mat = get_orthogonal_matrix(3)  # Randomly orthogonal matrix
     print(orthogonal_mat)
     new_data = np.matmul(orthogonal_mat, data)
     plot_3d(new_data, "Q13: Applied orthogonal matrix")
@@ -147,7 +160,9 @@ def question_14(data):
     print("------ Projection of the data to the x, y axes (DATA) ------")
     proj_mat = np.array([[1, 0, 0], [0, 1, 0], [0, 0, 0]])
     two_d_data = np.matmul(proj_mat, data)
-    print(two_d_data[:-1])  # "Elisha Kipnis" said we should plot in 2d if we project to 2d plane
+    print(
+        two_d_data[:-1]
+    )  # "Elisha Kipnis" said we should plot in 2d if we project to 2d plane
     # (https://moodle2.cs.huji.ac.il/nu19/mod/forumng/discuss.php?d=7931)
     plot_2d(two_d_data[:-1], "Q14: Projection of the data to the x, y axes.")
 
@@ -201,18 +216,20 @@ def question_16_bc():
     cummean = np.add.accumulate(ndata, axis=1) / np.arange(1, data_len + 1)
     for eps in epsilon:
         fig, ax = plt.subplots()  # Create a figure containing a single axes.
-        chebyshev = [min(variance/(x*(eps**2)), 1) for x in range(1, 1001)]
-        hoeffding = [min(2*math.exp(-2*x*(eps**2)), 1) for x in range(1, 1001)]
+        chebyshev = [min(variance / (x * (eps ** 2)), 1) for x in range(1, 1001)]
+        hoeffding = [min(2 * math.exp(-2 * x * (eps ** 2)), 1) for x in range(1, 1001)]
         percentage = create_pecentage_c(eps, cummean)
         ax.plot(range(1, 1001), chebyshev, label="chebyshev bound")  # plot 1
         ax.plot(range(1, 1001), hoeffding, label="hoeffding bound")  # plot 1
-        ax.plot(range(1, 1001), percentage, label="percentage satisfying event")  # plot 1
+        ax.plot(
+            range(1, 1001), percentage, label="percentage satisfying event"
+        )  # plot 1
         ax.set_xlabel("Toss numbers (m)")
         ax.set_ylabel("Upper Bound")
         ax.legend()
         ax.set_ylim(bottom=0, top=1.01)
         ax.set_xlim(left=0, right=1000)
-        plt.grid(color='#999999', linestyle='--', alpha=0.3)
+        plt.grid(color="#999999", linestyle="--", alpha=0.3)
         ax.set_title("Q16b: epsilon = " + str(eps))
         fig.show()
 
@@ -231,7 +248,7 @@ if __name__ == "__main__":
     question_14(data)
     question_15(data)
     # ----- Question no.16 -----
-    exp_number = 100000  # 100000
+    exp_number =100  # 100000
     data_len = 1000  # 1000
     ndata = np.random.binomial(1, 0.25, (exp_number, data_len))
     epsilon = [0.5, 0.25, 0.1, 0.01, 0.001]

@@ -1502,12 +1502,35 @@ C\coloneqq\frac{SX\left(SX\right)^{T}}{50000-1}=S\frac{XX^{T}}{49999}S^{T}=S\hat
 \end_layout
 
 \begin_layout Standard
+
+\series bold
+צורה נומרית-
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
 C=\begin{pmatrix}0.24479533 & -0.02450719 & 0.05942625\\
 -0.02450719 & 2.64547029 & -1.84138481\\
 0.05942625 & -1.84138481 & 1.30421308
 \end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+צורה אנליטית-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+RSCS^{T}R^{T}
 \]
 
 \end_inset
