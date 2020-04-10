@@ -1,5 +1,5 @@
 from linear_model import *
-
+import sys
 
 def test_01():
     """
@@ -40,10 +40,30 @@ def test_03():
     print("PASSED TEST 03") if mse(res_vec, pred_vec) == 10 else print("FAILED TEST 03")
 
 
-if __name__ == "__main__":
+def test_04(data_location):
+    """
+    QUESTION 12 tests the loading data function.
+    I used diff on the real data and figured out what rows I should eliminate, at the end I ended up with
+    just 21606 relevant lines.
+    :param data_location: the location of the data
+    """
+    data = load_data(
+        data_location)
+    print("PASSED TEST 04") if len(data) == 21606 else print("FAILED TEST 04")
+
+def main():
+    try:
+        data_location = sys.argv[1]
+    except Exception:
+        print('USAGE ERROR: please add the "kc_house_data.csv" correct location')
+        exit(-1)
     np.random.seed(7)
     print(">>>>> TESTER <<<<<")
     test_01()
     test_02()
     test_03()
-    load_data("/home/mercydude/University/semester05/Introduction to machine learning/projects/project_02/kc_house_data.csv")
+    test_04(data_location)
+    print(plot_singular_values([3.136, 0.635, 0.534, 0.463, 0.231]))
+
+if __name__ == "__main__":
+    main()
