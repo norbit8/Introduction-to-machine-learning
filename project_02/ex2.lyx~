@@ -1883,5 +1883,174 @@ Im\left(X^{T}\right)+Ker\left(X^{T}\right)=d\iff Im\left(X^{T}\right)=d
 
 \end_layout
 
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+9+10+11+12
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+אלו שאלות קוד שמומשו בקובץ 
+\begin_inset Formula $"\text{linear\_model.py"}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+13
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+מצאתי שה-
+\begin_inset Formula $\text{features}$
+\end_inset
+
+ הבאים הם 
+\begin_inset Formula $\text{\textbf{categoricals}}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $zipcode$
+\end_inset
+
+ - המיקוד, כמו שנוסח בשאלה, אין קורלציה ישירה בין הגדלים של זיפ קוד אחד
+ לאחר
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+אך סביר להניח שהמיקוד יכול להועיל לרגרסיה הלינארית, מאחר וסביר שתהיה קורלציה
+ בין המחיר של הבית
+\end_layout
+
+\begin_layout Standard
+למיקום שלו )שבא לידי ביטוי במיקוד(.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Formula $date$
+\end_inset
+
+ - זהו התאריך של מכירת הבית, נשים לב כי קיבלנו אותו בפורמט קצת מוזר 
+\begin_inset Formula $\text{yymmddT000000}$
+\end_inset
+
+,
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+התמודדתי איתו על ידי עריכה של העמודה ופיצולה ל-
+\numeric on
+3
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+עמודות שונות )שנה, חודש, יום( ועבור כל אחד מהעמודות
+\end_layout
+
+\begin_layout Standard
+האלה, יצרתי 
+\begin_inset Formula $\text{dummy variables}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
 \end_body
 \end_document

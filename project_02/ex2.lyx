@@ -1883,6 +1883,380 @@ Im\left(X^{T}\right)+Ker\left(X^{T}\right)=d\iff Im\left(X^{T}\right)=d
 
 \end_layout
 
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+9+10+11+12
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+אלו שאלות קוד שמומשו בקובץ 
+\begin_inset Formula $"\text{linear\_model.py"}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+13
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+מצאתי שה-
+\begin_inset Formula $\text{features}$
+\end_inset
+
+ הבאים הם 
+\begin_inset Formula $\text{\textbf{categoricals}}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $zipcode$
+\end_inset
+
+ - המיקוד, כמו שנוסח בשאלה, אין קורלציה ישירה בין הגדלים של זיפ קוד אחד
+ לאחר
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+אך סביר להניח שהמיקוד יכול להועיל לרגרסיה הלינארית, מאחר וסביר שתהיה קורלציה
+ בין המחיר של הבית
+\end_layout
+
+\begin_layout Standard
+למיקום שלו )שבא לידי ביטוי במיקוד(.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset Formula $date$
+\end_inset
+
+ - זהו התאריך של מכירת הבית, נשים לב כי קיבלנו אותו בפורמט קצת מוזר 
+\begin_inset Formula $\text{yymmddT000000}$
+\end_inset
+
+,
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+התמודדתי איתו על ידי עריכה של העמודה ופיצולה ל-
+\numeric on
+3
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+עמודות שונות )שנה, חודש, יום( ועבור כל אחד מהעמודות
+\end_layout
+
+\begin_layout Standard
+האלה, יצרתי 
+\begin_inset Formula $\text{dummy variables}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+14
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+הגרף שמתאר את הערכים הסינגולרים
+\bar default
+:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename Q15_GRAPH.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+15
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+מתוך ההרצאה 
+\begin_inset Formula $\text{"LectureHandout\_2\_Linear\_Regression.pdf"}$
+\end_inset
+
+: )תרגמתי לעברית(
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+לעיתים 
+\begin_inset Formula $XX^{T}$
+\end_inset
+
+ היא פורמלית הפיכה אך קרובה ללא הפכיה )=סינגולרית(.
+ הדבר קורה כאשר העמודות של 
+\begin_inset Formula $X^{T}$
+\end_inset
+
+ הן
+\end_layout
+
+\begin_layout Standard
+כמעט תלויות לינארית, או כאשר אחת מהעמודות של 
+\begin_inset Formula $X^{T}$
+\end_inset
+
+ הוא כמעט נפרש על-ידי שאר העמודות.
+\end_layout
+
+\begin_layout Standard
+במקרה כזה, מספר הערכים הסינגולרים של 
+\begin_inset Formula $X$
+\end_inset
+
+ שהם 
+\bar under
+לא אפסים
+\bar default
+
+\begin_inset space ~
+\end_inset
+
+יהיה קטן
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת, בגרף שמופיע בשאלה
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+14
+\numeric off
+ יש את התוצאה שלי,
+\end_layout
+
+\begin_layout Standard
+נשים לב כי רוב הערכים הסינגולרים הם דווקא אפס, כלומר מספר הערכים הסינגולרים
+ של 
+\begin_inset Formula $X$
+\end_inset
+
+ שהם לא אפס קטן,
+\end_layout
+
+\begin_layout Standard
+ולכן סביר להניח שהיא 
+\series bold
+אכן
+\series default
+ קרובה להיות סינגולרית.
+\end_layout
+
 \begin_layout Standard
 
 \end_layout

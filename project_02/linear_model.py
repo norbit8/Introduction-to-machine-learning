@@ -3,7 +3,7 @@ import pandas as pd
 from pandas import DataFrame
 from typing import Tuple
 from plotnine import *
-
+import math
 
 def fit_linear_regression(mat_x: np.array, res_vec: np.array) -> Tuple[np.array, np.array]:
     """
@@ -60,8 +60,31 @@ def load_data(path: str) -> np.array:
     filt_year_built = data['yr_built'] <= 2015
     filt_date = data['date'].notnull()
     filt_id = data['id'].notnull()
-    data = data.loc[filt_non_positive & filt_condition & filt_year_built & filt_date & filt_id]
-    data = data.drop_duplicates()
+    data = data.loc[filt_non_positive & filt_condition & filt_year_built & filt_date & filt_id]  # apply filters
+    data = data.drop_duplicates()  # drop duplicates
+    data = categorical_features(data)  # address categorical features
+    data = data.drop(['id', 'date', 'zipcode'], axis=1)  # drop the categorical columns and the id
+    # data.to_csv("./lol.csv")  # save csv for myself
+    return data
+
+
+def categorical_features(data: np.array) -> np.array:
+    """
+    Addressing the categorical features with one hot encoding solution.
+    :param data: The data in a form of an np array.
+    :return: The processed data.
+    """
+    # addressing zip code (One hot encoding)
+    zips = data['zipcode']
+    data = pd.concat([data, pd.get_dummies(zips)], axis=1)
+    # addressing dates (Cleaning + One hot encoding)
+    dates = data['date']
+    dates = pd.concat([dates.str.slice(0, 4), dates.str.slice(4, 6), dates.str.slice(6, 8)], axis=1)
+    dates.columns = ['year', 'month', 'day']  # renaming the columns for easier access
+    year, month, day = dates['year'], dates['month'], dates['day']
+    data = pd.concat([data, pd.get_dummies(year)], axis=1)
+    data = pd.concat([data, pd.get_dummies(month)], axis=1)
+    data = pd.concat([data, pd.get_dummies(day)], axis=1)
     return data
 
 
@@ -72,24 +95,77 @@ def plot_singular_values(singular_values: iter):
     :return: ggplot.
     """
     y = singular_values
-    y.sort(reverse=True)
+    y.sort()
+    y = y[::-1]
     x = [index for index in range(1, len(singular_values) + 1)]
     df = DataFrame({'x': x, 'y': y})
-    return ggplot(df, aes(x='x', y='y')) + geom_point(size=3) + geom_line() + \
+    return ggplot(df, aes(x='x', y='y')) + geom_point(size=1) + geom_line() + \
     ggtitle("Scree plot of the singular values") + \
     labs(y="Singular value", x="Component Number")
 
-def question_15():
-    PATH_TO_CSV = "kc_house_data.csv"
-    data = load_data(PATH_TO_CSV)
-    data_np = data.to_numpy().transpose()
+
+def question_15(data):
+    """
+    loading the data and plotting the singular values
+    :return: plot of the singular values (scree plot)
+    """
+    data = data.drop(['price'], axis=1)  # drop price
+    data_np = data.transpose()
     ones_vec = np.ones(data_np.shape[1])  # vectors of ones
     mat_x = np.vstack((ones_vec, data_np))  # adding ones to the matrix
     mat_x_t = mat_x.transpose()  # transposing after adding one
-    asdfasdf = np.array(mat_x, dtype='float')
-    singulars = np.linalg.svd(asdfasdf, compute_uv=False)
-    plot_singular_values(singulars)
+    singulars = np.linalg.svd(mat_x_t, compute_uv=False)
+    return plot_singular_values(singulars)
+
+
+def split_data_train_and_test(data):
+    """
+    Splits the data into train and test-sets randomly, such that the size
+    of the test set is 1/4 of the total data, and 3/4 of the data as training data.
+    :param data: Not splitted data.
+    :return: Splitted data.
+    """
+    total_data = len(data)
+    np.random.seed(7)
+    msk = np.random.rand(total_data) < 0.75
+    train = data[msk]
+    test = data[~msk]
+    return train, test
+
+
+def question_16(data):
+    training_data, testing_data = split_data_train_and_test(data)
+    real_price_vec = testing_data['price']
+    testing_data = testing_data.drop(['price'], axis=1)
+    testing_data = testing_data.transpose()
+    ones_vec = np.ones(testing_data.shape[1])  # vectors of ones
+    testing_data = np.vstack((ones_vec, testing_data))  # adding ones to the matrix
+    price_vector = training_data['price']
+    training_data = training_data.drop(['price'], axis=1)
+    mses = []
+    for i in range(1, 101):
+        train_number = i / 100
+        rows = math.floor(train_number*len(training_data))
+        mat_x = training_data[:math.floor(train_number*len(training_data))]
+        mat_x = mat_x.transpose()
+        w, singulars = fit_linear_regression(mat_x, price_vector[:rows])
+        pred = predict(testing_data, w)
+        mses.append(mse(real_price_vec, pred))
+    return mses
+
+
+def plot_results(res):
+    x = [index for index in range(1, 101)]
+    df = DataFrame({'x': x, 'y': res})
+    return ggplot(df, aes(x='x', y='y')) + geom_point(size=1) + geom_line() + \
+    ggtitle("MSE over the test set as a function of p%") + \
+    labs(y="MSE", x="p% (precent of the data trained)")
 
 
 if __name__ == "__main__":
-    question_15()
+    PATH_TO_CSV = "kc_house_data.csv"
+    data = load_data(PATH_TO_CSV)
+    # print(question_15(data))  # Question 15
+    res = question_16(data)
+    print(res)
+    print(plot_results(res))
