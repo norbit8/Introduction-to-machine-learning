@@ -2257,9 +2257,416 @@ Im\left(X^{T}\right)+Ker\left(X^{T}\right)=d\iff Im\left(X^{T}\right)=d
  קרובה להיות סינגולרית.
 \end_layout
 
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+16
+\end_layout
+
 \begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
 
 \end_layout
 
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename question16.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נשים לב כי אנחנו מתכנסים מהר מאוד ל-
+\begin_inset Formula $\text{MSE = 24,000,000,000\textasciitilde}$
+\end_inset
+
+ זאת מכיוון שאנחנו מאמנים על עוד נתונים.
+\end_layout
+
+\begin_layout Standard
+בנוסף שמתי לב שכשאני לא מעבד את הדאטא שלי ולא מחליף משתנים קטגורים אלא מוחק
+ אותם לוקח לי יותר זמן להתכנס,
+\end_layout
+
+\begin_layout Standard
+פה אני מתכנס די מהר.
+\end_layout
+
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+17
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+בגרף הבא, ניתן לראות קורלציה גבוהה )יחסית( בין מחיר הדירה לשטחה ב-
+\begin_inset Formula $\text{square feet}$
+\end_inset
+
+.
+ ניתן לראות זאת בכך 
+\end_layout
+
+\begin_layout Standard
+שה-
+\begin_inset Formula $\text{Pearson correlation}$
+\end_inset
+
+ קרוב ל-
+\numeric on
+1
+\numeric off
+, בנוסף בגרף ניתן לראות התנהגות יחסית לינארית ככל שהמחיר עולה.
+\end_layout
+
+\begin_layout Standard
+לכן ניתן להסיק שהשטח של הדירה יכול להועיל לרגרסיה הלינארית.
+ )חוץ מזה אינטואיטיבית לא מפתיע שהמחיר של הדירה
+\end_layout
+
+\begin_layout Standard
+קשור בקשר הדוק לגודל הדירה(
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename beneficial_feature.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+בגרף הבא, ניתן לראות קורלציה נמוכה )יחסית( בין מחיר הדירה לשנה שבה היא נבנתה.
+ ניתן לראות זאת בכך 
+\end_layout
+
+\begin_layout Standard
+שה-
+\begin_inset Formula $\text{Pearson correlation}$
+\end_inset
+
+ קרוב ל-
+\numeric on
+0
+\numeric off
+, בנוסף בגרף ניתן לראות התנהגות שאינה לינארית לכל אורך הגרף.
+\end_layout
+
+\begin_layout Standard
+לכן ניתן להסיק שהשטח של הדירה יכול להועיל לרגרסיה הלינארית.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename non_beneficial_feature.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+שאלות
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+18+19+20
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+אלו שאלות קוד הממומשות בקובץ 
+\begin_inset Formula $\text{"covid19.py"}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+21
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+הגרפים הבאים מראים את המספר חולי הקורונה בישראל אל מול מספר הימים מאז שהתגלה
+ החולה הראשון.
+\end_layout
+
+\begin_layout Standard
+הגרף הימני מתאר את מספר החולים באופן לוגריתמי והגרף השני לא.
+\end_layout
+
+\begin_layout Standard
+בנוסף בשני הגרפים יש את הקו הכחול שהוא השיערוך שלי, כאשר בגרף השמאלי זה
+ השיערוך של החולים
+\end_layout
+
+\begin_layout Standard
+מועלים בחזקת 
+\begin_inset Formula $e$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename log_covid19.png
+	lyxscale 50
+	scale 200
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename lcovid19.png
+	lyxscale 50
+	scale 200
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+22
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+פונקצית ה-
+\begin_inset Formula $\text{loss}$
+\end_inset
+
+ צריכה להיות כמו 
+\begin_inset Formula $L_{exp}$
+\end_inset
+
+ כדי שנקבל תוצאות נכונות.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+כלומר אנחנו נשלח לפונקצית ה-
+\begin_inset Formula $\text{fit\_linear\_regression}$
+\end_inset
+
+ את הלוגריתם הטבעי של 
+\begin_inset Formula $y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+כי אנחנו מנסים לעשות שערוך לפונקציה לינארית ולא אקספוננציאלית, ומכיוון שהלוגריתם
+ של פונקציה
+\end_layout
+
+\begin_layout Standard
+אקספוננציאלית הוא לינארי, נבחר ב-
+\begin_inset Formula $\text{loss function}$
+\end_inset
+
+ הזה.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+אם היינו משתמשים בפונקציית ה-
+\begin_inset Formula $\text{loss}$
+\end_inset
+
+ 
+\begin_inset Formula $\text{least square}$
+\end_inset
+
+, אז הייתי מנסה לעשות 
+\begin_inset Formula $\text{Gradient Descent}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+שזו שיטת אופטימיזציה איטרטיבית מסדר ראשון למציאת מינימום מקומי של פונקציה.
+\end_layout
+
+\begin_layout Standard
+בשיטה זו, נעשה צעד נגדי לגרדיאנט ביחס לנקודה הנוכחית.
+\end_layout
+
+\end_deeper
 \end_body
 \end_document

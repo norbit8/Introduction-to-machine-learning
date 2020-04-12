@@ -5,6 +5,7 @@ from typing import Tuple
 from plotnine import *
 import math
 
+
 def fit_linear_regression(mat_x: np.array, res_vec: np.array) -> Tuple[np.array, np.array]:
     """
     Linear Regression solver
@@ -155,6 +156,11 @@ def question_16(data):
 
 
 def plot_results(res):
+    """
+    plots the MSE over the test set as a function of p%
+    :param res: results.
+    :return: plot
+    """
     x = [index for index in range(1, 101)]
     df = DataFrame({'x': x, 'y': res})
     return ggplot(df, aes(x='x', y='y')) + geom_point(size=1) + geom_line() + \
@@ -162,10 +168,43 @@ def plot_results(res):
     labs(y="MSE", x="p% (precent of the data trained)")
 
 
+def plot_scatter_features_values(vector_1, res_v, name):
+    """
+    plots the non categorical features to the screen.
+    :param vector_1: the vector of the feature.
+    :param res_v: the price vector.
+    :param name: the name of the feature.
+    :return: a plot.
+    """
+    cov_mat = np.cov(vector_1, res_v, ddof=1)
+    sigma1 = np.std(vector_1, ddof=1)
+    sigma2 = np.std(res_v, ddof=1)
+    pearson_correlation = (cov_mat[1][0]) / (sigma1 * sigma2)
+    df = DataFrame({'x': res_v, 'y': vector_1})
+    return ggplot(df, aes(x='x', y='y')) + geom_point(size=1)+ theme_bw() + geom_line() + \
+    ggtitle("Non-categorical feature ("+name+") vs the price\n The Pearson correlation is " +
+            str(pearson_correlation) + "\n") + \
+    labs(y=name+" feature", x="Response vector (=price)")
+
+
+def feature_evaluation(mat_x: DataFrame, res_v: np.array):
+    """
+    feature ecaluation, creates plots for each feature vs the price.
+    :param mat_x: the matrix of features
+    :param res_v: the prices vector
+    """
+    relevant_columns = mat_x.iloc[:, :17]
+    for col in range(17):
+        vector_1 = relevant_columns.iloc[:, col]
+        print(plot_scatter_features_values(vector_1, res_v, vector_1.name))
+
+
 if __name__ == "__main__":
     PATH_TO_CSV = "kc_house_data.csv"
     data = load_data(PATH_TO_CSV)
-    # print(question_15(data))  # Question 15
+    print(question_15(data))  # Question 15
     res = question_16(data)
-    print(res)
     print(plot_results(res))
+    res_v = data['price']
+    mat_x = data.drop(['price'], axis=1)  # drop prices
+    feature_evaluation(mat_x, res_v)
