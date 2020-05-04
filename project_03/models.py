@@ -14,6 +14,34 @@ Y_AXIS = 1
 X_AXIS = 0
 FIT_BAD_INPUT = "Bad input to 'fit' method"
 
+def global_score(X: np.array, y: np.array, y_hat: np.array) -> dict:
+    """
+    Global function to use for all the classes
+    Given an unlabeled test set X, and the true labels y,
+    of this test set, returns a dictionary with the following fields:
+    number of samples in the test set, error rate, accuracy, false positive rate,
+    true positive rate, precision, recall (True positive rate)
+    :param X:
+    :param y:
+    :return:
+    """
+    num_samples = X.shape[Y_AXIS]
+    err_rate = np.sum(y_hat != y) / (num_samples + 0.0)  # (FP + FN) / (P + N)
+    accuracy = np.sum(y_hat == y) / (num_samples + 0.0)  # (TP + TN) / (P + N)
+    fp = 0
+    tp = 0
+    for index, item in enumerate(y_hat):
+        if item == 1 and y[index] == -1:
+            fp += 1
+        if item == 1 and y[index] == 1:
+            tp += 1
+    fpr = fp / np.count_nonzero(((y + np.ones(y.shape[0], dtype=int)) // 2) == 0)
+    tpr = tp / np.count_nonzero(y + np.ones(y.shape[0], dtype=int))
+    precision = tp / (tp + fp)
+    recall = tpr  # https://moodle2.cs.huji.ac.il/nu19/mod/forumng/discuss.php?d=9152
+    return {"num_samples": num_samples, "error": err_rate, "accuracy": accuracy,
+            "FPR": fpr, "TPR": tpr, "precision": precision, "recall": recall
+            }
 
 class Perceptron:
     """
@@ -60,39 +88,22 @@ class Perceptron:
 
     def score(self, X: np.array, y: np.array) -> dict:
         """
-        Given an unlabeled test set X, and the true lables y,
+        Given an unlabeled test set X, and the true labels y,
         of this test set, returns a dictionary with the following fields:
         number of samples in the test set, error rate, accuracy, false positive rate,
         true positive rate, precision, recall (True positive rate)
         :param X:
         :param y:
-        :return:
+        :return: dict
         """
-        num_samples = X.shape[Y_AXIS]
         y_hat = self.predict(X)
-        err_rate = np.sum(y_hat != y) / (num_samples + 0.0)  # (FP + FN) / (P + N)
-        accuracy = np.sum(y_hat == y) / (num_samples + 0.0)  # (TP + TN) / (P + N)
-        fp = 0
-        tp = 0
-        for index, item in enumerate(y_hat):
-            if item == 1 and y[index] == -1:
-                fp += 1
-            if item == 1 and y[index] == 1:
-                tp += 1
-        fpr = fp / np.count_nonzero(((y + np.ones(y.shape[0], dtype=int)) // 2) == 0)
-        tpr = tp / np.count_nonzero(y + np.ones(y.shape[0], dtype=int))
-        precision = tp / (tp + fp)
-        recall = tpr  # https://moodle2.cs.huji.ac.il/nu19/mod/forumng/discuss.php?d=9152
-        return {"num_samples": num_samples, "error": err_rate, "accuracy": accuracy,
-                "FPR": fpr, "TPR": tpr, "precision": precision, "recall": recall
-                }
-
+        return global_score(X, y, y_hat)
 
 class LDA:
     """
     This is the the class implements the LDA classifier.
     """
-    model = []
+    model = {}
 
     def fit(self, X: np.array, y: np.array):
         """
@@ -104,20 +115,63 @@ class LDA:
         :return: nothing.
         """
         m = X.shape[Y_AXIS]
-        d = X.shape[X_AXIS]
-        features_avgs = (np.add.accumulate(X, axis=1) / m)[:, -1]
+        features_avgs = (np.add.accumulate(X, axis=Y_AXIS) / m)[:, -1]
         x_t_centered = X.transpose() - np.tile(features_avgs, (m, 1))
         cov_mat = (x_t_centered.transpose() @ x_t_centered) / (m - 1)
-        mu_1 = (1 / m) * (np.add.accumulate(X[y == 1], axis=1)[:, -1])
-        mu_m1 = (1 / m) * (np.add.accumulate(X[y == -1], axis=1)[:, -1])
+        mu_1 = (1 / m) * (np.add.accumulate(X[y == 1], axis=Y_AXIS)[:, -1])
+        mu_m1 = (1 / m) * (np.add.accumulate(X[y == -1], axis=Y_AXIS)[:, -1])
         prob_y1 = np.count_nonzero(y == 1) / m
         prob_ym1 = np.count_nonzero(y == -1) / m
+        self.model = {"cov_mat": cov_mat, "mu_1": mu_1, "mu_m1": mu_m1,
+                      "prob_y1": prob_y1, "prob_ym1": prob_ym1}
+
+
+    def delta(self, y, x):
+        """
+        delta function as defined in the exercise pdf page 2.
+        :param y: y
+        :param x: x
+        :return: number
+        """
+        if y == 1:
+            mu = self.model['mu_1']
+            prob_y = self.model['prob_y1']
+        else:
+            mu = self.model['mu_m1']
+            prob_y = self.model['prob_ym1']
+        cov_mat = self.model['cov_mat']
+        cov_mat_inv = np.linalg.inv(cov_mat)
+        return (x.transpose() @ cov_mat_inv @ mu) - \
+              (0.5 * mu.transpose() @ cov_mat_inv @ mu) +\
+              np.log(prob_y)
 
     def predict(self, X: np.array) -> np.array:
-        pass
+        """
+        Given an unlabeled test set X, predicts the label of each sample.
+        :param X: Unlabeled test set.
+        :return: A vector of predicted lables y.
+        """
+        X = X.transpose()
+        res = []
+        for x in X:
+            if self.delta(1, x) >= self.delta(-1, x):
+                res.append(1)
+            else:
+                res.append(-1)
+        return res
 
     def score(self, X: np.array, y: np.array) -> dict:
-        pass
+        """
+        Given an unlabeled test set X, and the true labels y,
+        of this test set, returns a dictionary with the following fields:
+        number of samples in the test set, error rate, accuracy, false positive rate,
+        true positive rate, precision, recall (True positive rate)
+        :param X:
+        :param y:
+        :return: dict
+        """
+        y_hat = self.predict(X)
+        return global_score(X, y, y_hat)
 
 
 class SVM:
