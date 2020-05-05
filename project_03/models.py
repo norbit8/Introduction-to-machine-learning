@@ -88,7 +88,6 @@ class Perceptron:
         :return: A vector of predicted lables y.
         """
         non_homogeneous = np.vstack((np.ones(X.shape[Y_AXIS]), X))
-        print(non_homogeneous)
         v_func = np.vectorize(lambda x: 1 if x >= 0 else -1)  # vector function to map values to labels
         return v_func(non_homogeneous.transpose() @ self.model)
 
@@ -125,8 +124,8 @@ class LDA:
         features_avgs = (np.add.accumulate(X, axis=Y_AXIS) / m)[:, -1]
         x_t_centered = X.transpose() - np.tile(features_avgs, (m, 1))
         cov_mat = (x_t_centered.transpose() @ x_t_centered) / (m - 1)
-        mu_1 = (1 / m) * (np.add.accumulate(X[y == 1], axis=Y_AXIS)[:, -1])
-        mu_m1 = (1 / m) * (np.add.accumulate(X[y == -1], axis=Y_AXIS)[:, -1])
+        mu_1 = (1 / m) * (np.add.accumulate(X[:, y == 1], axis=Y_AXIS)[:, -1])
+        mu_m1 = (1 / m) * (np.add.accumulate(X[:, y == -1], axis=Y_AXIS)[:, -1])
         prob_y1 = np.count_nonzero(y == 1) / m
         prob_ym1 = np.count_nonzero(y == -1) / m
         self.model = {"cov_mat": cov_mat, "mu_1": mu_1, "mu_m1": mu_m1,
@@ -205,7 +204,7 @@ class SVM:
         :param X: Unlabeled test set.
         :return: A vector of predicted lables y.
         """
-        return self.model.predict(X)
+        return self.model.predict(X.transpose())
 
     def score(self, X: np.array, y: np.array) -> dict:
         """
@@ -296,27 +295,3 @@ class DecisionTree:
         """
         y_hat = self.predict(X)
         return global_score(X, y, y_hat)
-
-
-if __name__ == '__main__':
-    # data = pd.read_csv("/home/mercydude/University/"
-    #                    "semester05/Introduction to machine learning/projects/project_03/tests/iris.csv")
-    # data.loc[data.flower == "Iris-setosa", 'flower'] = 0
-    # data.loc[data.flower == "Iris-virginica", 'flower'] = 1
-    # data = data.sample(frac=1)
-    # X = data.iloc[:, :4].to_numpy().transpose()
-    # y = data.iloc[:, 4:].to_numpy()
-    # print(X.shape)
-    # print(y.shape)
-
-    ## PERCEPTRON BAISC TESTS
-    # x = np.array([[1, 3], [1, 4], [2, 4], [4, 1], [5, 1]]).transpose()
-    # y = np.array([1, 1, 1, -1, -1])
-    #
-    # perce = Perceptron()
-    # perce.fit(x, y)
-    # print(perce.model)
-    # testing_data = np.array([[1, 2]]).transpose()
-    # print(testing_data.shape)
-    # print("PASSED") if (perce.predict(testing_data) == 1)[0] else print("FAILED")
-    print("YO m8")
