@@ -403,11 +403,11 @@ h_{\mathcal{D}}\left(x\right) & =\text{argmax}_{y\in\left\{ \pm1\right\} }\left\
 \vdots & \vdots & \vdots\\
 \frac{1}{m}\sum_{i=1}^{m}x_{i}^{1} & \dots & \frac{1}{m}\sum_{i=1}^{m}x_{i}^{1}
 \end{array}\right)\\
-\text{Pr\left(y=1\right)} & =\frac{\sum_{i=1}^{m}1_{x_{i}}}{m}\qquad where\ 1_{x_{i}}=\begin{cases}
+\text{Pr\left(y=1\right)} & =\frac{\sum_{i=1}^{m}1_{y_{i}}}{m}\qquad where\ 1_{y_{i}}=\begin{cases}
 1 & if\ y_{i}=1\\
 0 & otherwise
 \end{cases}\\
-\text{Pr\left(y=-1\right)} & =\frac{\sum_{i=1}^{m}-1_{x_{i}}}{m}\qquad where\ -1_{x_{i}}=\begin{cases}
+\text{Pr\left(y=-1\right)} & =\frac{\sum_{i=1}^{m}-1_{y_{i}}}{m}\qquad where\ -1_{x_{i}}=\begin{cases}
 1 & if\ y_{i}=-1\\
 0 & otherwise
 \end{cases}
@@ -1141,6 +1141,77 @@ y_{i}\left\langle w,x_{i}\right\rangle =y_{i}\left\langle w,x_{i}\right\rangle =
 \end_inset
 
 
+\end_layout
+
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+9
+\numeric off
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+הגרפים הבאים מציגים את העל-מישורים שנבחרו ע
+\begin_inset Quotes eld
+\end_inset
+
+י האלגוריתמים 
+\begin_inset Formula $\text{SVM, Perceptron}$
+\end_inset
+
+, כאשר הפונקציה האמיתית
+\end_layout
+
+\begin_layout Standard
+שמתארת את העל מישור היא 
+\begin_inset Formula $\left\langle \left(\begin{array}{c}
+0.3\\
+-0.5
+\end{array}\right),\boldsymbol{x}\right\rangle +0.1=0$
+\end_inset
+
+ , והשוני בכל גרף הוא מספר הדגימות 
+\begin_inset Formula $(samples)$
+\end_inset
+
+ שבו 
+\end_layout
+
+\begin_layout Standard
+כל אלגוריתם קלסיפיקציה אומן.
 \end_layout
 
 \end_body

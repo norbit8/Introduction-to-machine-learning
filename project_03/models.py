@@ -148,8 +148,8 @@ class LDA:
         cov_mat = self.model['cov_mat']
         cov_mat_inv = np.linalg.inv(cov_mat)
         return (x.transpose() @ cov_mat_inv @ mu) - \
-              (0.5 * mu.transpose() @ cov_mat_inv @ mu) +\
-              np.log(prob_y)
+               (0.5 * mu.transpose() @ cov_mat_inv @ mu) + \
+               np.log(prob_y)
 
     def predict(self, X: np.array) -> np.array:
         """
@@ -196,7 +196,7 @@ class SVM:
         :return: nothing.
         """
         svm = SVC(C=1e10, kernel='linear')
-        svm.fit(X, y)
+        svm.fit(X.transpose(), y)
         self.model = svm
 
     def predict(self, X: np.array) -> np.array:
@@ -299,26 +299,24 @@ class DecisionTree:
 
 
 if __name__ == '__main__':
-# data = pd.read_csv("/home/mercydude/University/"
-#                    "semester05/Introduction to machine learning/projects/project_03/tests/iris.csv")
-# data.loc[data.flower == "Iris-setosa", 'flower'] = 0
-# data.loc[data.flower == "Iris-virginica", 'flower'] = 1
-# data = data.sample(frac=1)
-# X = data.iloc[:, :4].to_numpy().transpose()
-# y = data.iloc[:, 4:].to_numpy()
-# print(X.shape)
-# print(y.shape)
+    # data = pd.read_csv("/home/mercydude/University/"
+    #                    "semester05/Introduction to machine learning/projects/project_03/tests/iris.csv")
+    # data.loc[data.flower == "Iris-setosa", 'flower'] = 0
+    # data.loc[data.flower == "Iris-virginica", 'flower'] = 1
+    # data = data.sample(frac=1)
+    # X = data.iloc[:, :4].to_numpy().transpose()
+    # y = data.iloc[:, 4:].to_numpy()
+    # print(X.shape)
+    # print(y.shape)
 
-
-## PERCEPTRON BAISC TESTS
-# x = np.array([[1, 3], [1, 4], [2, 4], [4, 1], [5, 1]]).transpose()
-# y = np.array([1, 1, 1, -1, -1])
-#
-# perce = Perceptron()
-# perce.fit(x, y)
-# print(perce.model)
-# testing_data = np.array([[1, 2]]).transpose()
-# print(testing_data.shape)
-# print("PASSED") if (perce.predict(testing_data) == 1)[0] else print("FAILED")
+    ## PERCEPTRON BAISC TESTS
+    # x = np.array([[1, 3], [1, 4], [2, 4], [4, 1], [5, 1]]).transpose()
+    # y = np.array([1, 1, 1, -1, -1])
+    #
+    # perce = Perceptron()
+    # perce.fit(x, y)
+    # print(perce.model)
+    # testing_data = np.array([[1, 2]]).transpose()
+    # print(testing_data.shape)
+    # print("PASSED") if (perce.predict(testing_data) == 1)[0] else print("FAILED")
     print("YO m8")
-    

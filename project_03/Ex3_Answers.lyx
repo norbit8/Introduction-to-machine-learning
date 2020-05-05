@@ -1143,5 +1143,176 @@ y_{i}\left\langle w,x_{i}\right\rangle =y_{i}\left\langle w,x_{i}\right\rangle =
 
 \end_layout
 
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+9
+\numeric off
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+הגרפים הבאים מציגים את העל-מישורים שנבחרו ע
+\begin_inset Quotes eld
+\end_inset
+
+י האלגוריתמים 
+\begin_inset Formula $\text{SVM, Perceptron}$
+\end_inset
+
+, כאשר הפונקציה האמיתית
+\end_layout
+
+\begin_layout Standard
+שמתארת את העל מישור היא 
+\begin_inset Formula $\left\langle \left(\begin{array}{c}
+0.3\\
+-0.5
+\end{array}\right),\boldsymbol{x}\right\rangle +0.1=0$
+\end_inset
+
+ , והשוני בכל גרף הוא מספר הדגימות 
+\begin_inset Formula $(samples)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+שעליו כל אלגוריתם קלסיפיקציה אומן.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename plot5.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename plot10.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename plot15.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename plot25.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename plot70.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+בנוסף הקוד של הגרפים ויצירתם נמצא בקובץ 
+\begin_inset Formula $\text{'comparison.py'}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+10
+\numeric off
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
