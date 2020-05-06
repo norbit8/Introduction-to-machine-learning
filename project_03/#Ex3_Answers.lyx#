@@ -1207,11 +1207,659 @@ y_{i}\left\langle w,x_{i}\right\rangle =y_{i}\left\langle w,x_{i}\right\rangle =
 \begin_inset Formula $(samples)$
 \end_inset
 
- שבו 
+ 
 \end_layout
 
 \begin_layout Standard
-כל אלגוריתם קלסיפיקציה אומן.
+שעליו כל אלגוריתם קלסיפיקציה אומן.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename plot5.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename plot10.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename plot15.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename plot25.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename plot70.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+*בנוסף הקוד של הגרפים ויצירתם נמצא בקובץ 
+\begin_inset Formula $\text{'comparison.py'}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+10
+\numeric off
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+בשאלה זו נדרשנו לבדוק את ה-
+\begin_inset Formula $\text{Accuracy}$
+\end_inset
+
+ של האלגוריתמים 
+\begin_inset Formula $\text{Perceptron, LDA, SVM}$
+\end_inset
+
+, עבור מספר דגימות משתנה
+\end_layout
+
+\begin_layout Standard
+שעליהן אימנו את ה-
+\begin_inset Formula $DATA$
+\end_inset
+
+, בנוסף ה-
+\begin_inset Formula $\text{Testing data}$
+\end_inset
+
+ נעשה על
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\begin_inset Formula $10,000$
+\end_inset
+
+ דגימות נוספות, ומיצענו על 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+500
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+איטרציות עבור 
+\end_layout
+
+\begin_layout Standard
+כל מספר דגימות שעליו אימנו את ה-
+\begin_inset Formula $DATA$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename question10.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+*בנוסף הקוד של הגרפים ויצירתם נמצא בקובץ 
+\begin_inset Formula $\text{'comparison.py'}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+11
+\numeric off
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ניתן לראות בגרף שהמסווג 
+\begin_inset Formula $\text{Perceptron}$
+\end_inset
+
+ היה המוצלח ביותר מבין שלושת המסווגים, וה-
+\begin_inset Formula $\text{SVM}$
+\end_inset
+
+ גם מאוד קרוב אליו.
+\end_layout
+
+\begin_layout Standard
+לדעתי זה בגלל שהפרספטרון מנסה למצוא את ההפרדה הטובה ביותר, בעוד שה-
+\begin_inset Formula $\text{SVM}$
+\end_inset
+
+ מנסה למצוא את ה-
+\begin_inset Formula $margin$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+הטוב ביותר, נשים לב שכל האלגוריתמים מתכנסים יחסית ככל שאנחנו מאמנים על יותר
+ 
+\begin_inset Formula $\text{DATA}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+12
+\numeric off
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\bar under
+דגימות מה-
+\begin_inset Formula $\text{DATA SET}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+אחדים-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename zeros_and_ones/one1.png
+	lyxscale 20
+	scale 20
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename zeros_and_ones/one2.png
+	lyxscale 20
+	scale 20
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename zeros_and_ones/one3.png
+	lyxscale 20
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+אפסים-
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename zeros_and_ones/zero1.png
+	lyxscale 20
+	scale 20
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename zeros_and_ones/zero2.png
+	lyxscale 20
+	scale 20
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename zeros_and_ones/zero3.png
+	lyxscale 20
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+13
+\numeric off
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\text{This is a coding question, the code is provided in the 'mnist\_data.py' python file.}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+14
+\numeric off
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+הגרף הבא מתאר את הדיוק )
+\begin_inset Formula $Accuracy$
+\end_inset
+
+( של כל אחד מהאלגוריתמי למידה שנדרשנו לבדוק.
+\end_layout
+
+\begin_layout Standard
+מדדנו את התוצאות על 
+\begin_inset Formula $DATA$
+\end_inset
+
+ של כתבי יד
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+של מספרים
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+)
+\numeric on
+0
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+או
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\numeric off
+( וציר ה-
+\begin_inset Formula $X$
+\end_inset
+
+ הוא מספר הדגימות
+\end_layout
+
+\begin_layout Standard
+שדגמנו כדי לאמן את האלגוריתמים.
+\end_layout
+
+\begin_layout Standard
+נשים לב שבמקרה של 
+\begin_inset Formula $KNN$
+\end_inset
+
+ דווקא חלה ירידה ככל שאימנו על יותר וזה מכיוון שהגדרתי את שהאלגוריתם
+\end_layout
+
+\begin_layout Standard
+יבדוק על מספר שכנים שהוא שליש ממספר הדגימות, כלומר כשיש יותר דגימות ככה
+ הוא מתחשב ביותר שכנים.
+\end_layout
+
+\begin_layout Standard
+דבר זה כנראה מביא לבעיה מסויימת כי הוא מתחיל להחשיב ש
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename question14.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
 \end_layout
 
 \end_body

@@ -131,25 +131,6 @@ class LDA:
         self.model = {"cov_mat": cov_mat, "mu_1": mu_1, "mu_m1": mu_m1,
                       "prob_y1": prob_y1, "prob_ym1": prob_ym1}
 
-    def delta(self, y, x):
-        """
-        delta function as defined in the exercise pdf page 2.
-        :param y: y
-        :param x: x
-        :return: number
-        """
-        if y == 1:
-            mu = self.model['mu_1']
-            prob_y = self.model['prob_y1']
-        else:
-            mu = self.model['mu_m1']
-            prob_y = self.model['prob_ym1']
-        cov_mat = self.model['cov_mat']
-        cov_mat_inv = np.linalg.inv(cov_mat)
-        return (x.transpose() @ cov_mat_inv @ mu) - \
-               (0.5 * mu.transpose() @ cov_mat_inv @ mu) + \
-               np.log(prob_y)
-
     def predict(self, X: np.array) -> np.array:
         """
         Given an unlabeled test set X, predicts the label of each sample.
@@ -158,8 +139,18 @@ class LDA:
         """
         X = X.transpose()
         res = []
+        cov_mat = self.model['cov_mat']
+        cov_mat_inv = np.linalg.inv(cov_mat)
+        mu1 = self.model['mu_1']
+        mum1 = self.model['mu_m1']
+        middle_y1 = (0.5 * mu1 @ cov_mat_inv @ mu1)
+        middle_ym1 = (0.5 * mum1 @ cov_mat_inv @ mum1)
+        # y
+        prob_y1 = self.model['prob_y1']
+        prob_ym1 = self.model['prob_ym1']
         for x in X:
-            if self.delta(1, x) >= self.delta(-1, x):
+            if ((x @ cov_mat_inv @ mu1) - middle_y1 + np.log(prob_y1)) >=\
+                    ((x @ cov_mat_inv @ mum1) - middle_ym1 + np.log(prob_ym1)):
                 res.append(1)
             else:
                 res.append(-1)
@@ -272,6 +263,7 @@ class DecisionTree:
         :param y: The lables vector.
         :return: nothing.
         """
+        X = X.transpose()
         self.model = DecisionTreeClassifier(max_depth=1)
         self.model.fit(X, y)
 
