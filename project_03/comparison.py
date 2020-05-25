@@ -7,8 +7,8 @@
 from models import *
 from plotnine import *
 from pandas import DataFrame
-
 # --- constants ---
+TESTING_SIZE = 500
 TRAINED_NUMBERS = (5, 10, 15, 25, 70)
 
 
@@ -25,7 +25,7 @@ def draw_points(m: int) -> tuple:
     w = np.array([0.3, -0.5])
     b = 0.1
     y = np.sign((w @ samples) + b)
-    return (samples, y)
+    return samples, y
 
 
 def Draw_question_10_graphs(perceptron_accuracy_avg: list, svm_accuracy_avg: list, lda_accuracy_avg: list):
@@ -43,12 +43,9 @@ def Draw_question_10_graphs(perceptron_accuracy_avg: list, svm_accuracy_avg: lis
     df = DataFrame({'trained samples': TRAINED_NUMBERS, 'perceptron': perceptron_accuracy_avg, 'svm': svm_accuracy_avg,
                     'lda': lda_accuracy_avg, 'name1': perceptron, 'name2': svm, 'name3': lda})  # Blue dots
     p = (ggplot(df) + \
-         geom_point(aes(x='trained samples', y='perceptron')) + \
-         geom_point(aes(x='trained samples', y='svm')) + \
-         geom_point(aes(x='trained samples', y='lda')) + \
-         geom_smooth(aes(x='trained samples', y='perceptron', colour="factor(name1)")) + \
-         geom_smooth(aes(x='trained samples', y='lda', colour="factor(name2)")) + \
-         geom_smooth(aes(x='trained samples', y='svm', colour="factor(name3)")) + \
+         geom_line(aes(x='trained samples', y='perceptron', colour="factor(name1)")) + \
+         geom_line(aes(x='trained samples', y='lda', colour="factor(name3)")) + \
+         geom_line(aes(x='trained samples', y='svm', colour="factor(name2)")) + \
          scale_color_manual(name="Algorithm", values=("red", "black", "purple")) + \
          labs(x="Trained samples number (m)", y="Accuracy average",
               title=f"Question 10: Testing Perceptron VS SVM algorithm VS"
@@ -114,7 +111,7 @@ def Question_9_hyperplanes_graphs():
         Plot_9(df1, df2, df3, df4, df5, m)
 
 
-def Get_accuracies()-> tuple:
+def Get_accuracies() -> tuple:
     """
     Helper function to question 10.
     :return: A tuple contains all the different algorithms accuracies averages.
@@ -123,11 +120,14 @@ def Get_accuracies()-> tuple:
     p_a_avg, svm_a_avg, lda_a_avg = [], [], []
     for m in TRAINED_NUMBERS:
         x_train, y_train = draw_points(m)
+        while np.count_nonzero(y_train == 1) == y_train.shape[0] or \
+            np.count_nonzero(y_train == -1) == y_train.shape[0]:
+            x_train, y_train = draw_points(m)
         perceptron.fit(x_train, y_train)
         svm.fit(x_train, y_train)
         lda.fit(x_train, y_train)
         perceptron_accuracy_sum, svm_accuracy_sum, lda_accuracy_sum = (0, 0, 0)
-        for index in range(500):
+        for index in range(TESTING_SIZE):
             x_test, y_test = draw_points(k)
             score_perceptron = perceptron.score(x_test, y_test)
             score_svm = svm.score(x_test, y_test)
@@ -135,15 +135,17 @@ def Get_accuracies()-> tuple:
             perceptron_accuracy_sum += score_perceptron['accuracy']
             svm_accuracy_sum += score_svm['accuracy']
             lda_accuracy_sum += score_lda['accuracy']
-        p_a_avg.append(perceptron_accuracy_sum / 500)
-        svm_a_avg.append(svm_accuracy_sum / 500)
-        lda_a_avg.append(lda_accuracy_sum / 500)
-
+            svm_accuracy_sum = round(svm_accuracy_sum, 4)
+            perceptron_accuracy_sum = round(perceptron_accuracy_sum, 4)
+            lda_accuracy_sum = round(lda_accuracy_sum, 4)
+        p_a_avg.append(perceptron_accuracy_sum / (TESTING_SIZE))
+        svm_a_avg.append(svm_accuracy_sum / (TESTING_SIZE))
+        lda_a_avg.append(lda_accuracy_sum / (TESTING_SIZE))
     return p_a_avg, svm_a_avg, lda_a_avg
 
 
 if "__main__" == __name__:
     perceptron, svm, lda = Perceptron(), SVM(), LDA()
-    Question_9_hyperplanes_graphs()  # question 9
+    # Question_9_hyperplanes_graphs()  # question 9
     perceptron_accuracy_avg, svm_accuracy_avg, lda_accuracy_avg = Get_accuracies()  # question 10 data
     Draw_question_10_graphs(perceptron_accuracy_avg, svm_accuracy_avg, lda_accuracy_avg)  # Question 10 Graphs

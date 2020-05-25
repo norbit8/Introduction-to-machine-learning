@@ -2299,6 +2299,8 @@ Im\left(X^{T}\right)+Ker\left(X^{T}\right)=d\iff Im\left(X^{T}\right)=d
 \align center
 \begin_inset Graphics
 	filename question16.png
+	lyxscale 50
+	scale 50
 
 \end_inset
 
@@ -2394,6 +2396,8 @@ Im\left(X^{T}\right)+Ker\left(X^{T}\right)=d\iff Im\left(X^{T}\right)=d
 \align center
 \begin_inset Graphics
 	filename beneficial_feature.png
+	lyxscale 50
+	scale 50
 
 \end_inset
 
@@ -2425,6 +2429,8 @@ Im\left(X^{T}\right)+Ker\left(X^{T}\right)=d\iff Im\left(X^{T}\right)=d
 \align center
 \begin_inset Graphics
 	filename non_beneficial_feature.png
+	lyxscale 50
+	scale 50
 
 \end_inset
 
@@ -2535,6 +2541,28 @@ Im\left(X^{T}\right)+Ker\left(X^{T}\right)=d\iff Im\left(X^{T}\right)=d
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename log_covid19.png
+	lyxscale 50
+	scale 200
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename lcovid19.png
+	lyxscale 50
+	scale 200
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph*

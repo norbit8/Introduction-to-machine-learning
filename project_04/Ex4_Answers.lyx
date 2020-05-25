@@ -1,0 +1,446 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass heb-article
+\use_default_options true
+\maintain_unincluded_children false
+\language hebrew
+\language_package default
+\inputencoding cp1255
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement tph
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+תרגיל
+\family roman
+\series medium
+\shape up
+\size largest
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+4
+\family roman
+\series medium
+\shape up
+\size largest
+\emph off
+\numeric off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+- מבוא למערכות לומדות
+\end_layout
+
+\begin_layout Title
+מגיש: 
+\bar under
+יואב לוי 
+\numeric on
+314963257
+\end_layout
+
+\begin_layout Subsubsection*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+1
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(b\right)\Rightarrow\left(a\right)$
+\end_inset
+
+ לפי הגדרת הגבול לכל 
+\begin_inset Formula $\varepsilon,\delta>0$
+\end_inset
+
+ קיים 
+\begin_inset Formula $m\left(\varepsilon,\delta\right)\in\mathbb{N}$
+\end_inset
+
+ כך שלכל 
+\begin_inset Formula $m>m\left(\varepsilon,\delta\right)$
+\end_inset
+
+ מתקיים:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left|\mathbb{E}_{S\sim D^{m}}\left[L_{D}\left(A\left(S\right)\right)\right]-0\right|\leq\varepsilon\cdot\delta\iff\left|\mathbb{E}_{S\sim D^{m}}\left[L_{D}\left(A\left(S\right)\right)\right]\right|\leq\varepsilon\cdot\delta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת, נשים לב כי מתקיים
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Pr_{S\sim D^{m}}\left[L_{D}\left(A\left(S\right)\right)\leq\varepsilon\right]=1-\Pr_{S\sim D^{m}}\left[L_{D}\left(A\left(S\right)\right)>\varepsilon\right]\overset{\text{Markov's Inequality}}{\geq}1-\frac{\mathbb{E}_{S\sim D^{m}}\left[L_{D}\left(A\left(S\right)\right)\right]}{\varepsilon}\geq1-\frac{\varepsilon\cdot\delta}{\varepsilon}=1-\delta
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(a\right)\Rightarrow\left(b\right)$
+\end_inset
+
+ יהי 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+.
+ מ-
+\begin_inset Formula $\left(a\right)$
+\end_inset
+
+ קיים 
+\begin_inset Formula $m\left(\frac{\varepsilon}{2},\frac{\varepsilon}{2}\right)$
+\end_inset
+
+ כך שלכל 
+\begin_inset Formula $m>m\left(\frac{\varepsilon}{2},\frac{\varepsilon}{2}\right)$
+\end_inset
+
+ מתקיים
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Pr_{S\sim D^{m}}\left[L_{D}\left(A\left(S\right)\right)\leq\frac{\varepsilon}{2}\right]\geq1-\frac{\varepsilon}{2}\implies\Pr_{S\sim D^{m}}\left[L_{D}\left(A\left(S\right)\right)>\frac{\varepsilon}{2}\right]\leq\frac{\varepsilon}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+בנוסף נתון לנו שפונקציית ה-
+\begin_inset Formula $Loss$
+\end_inset
+
+ שלנו היא 
+\begin_inset Formula $L_{D}\left(A\left(S\right)\right)\in\left[0,1\right]$
+\end_inset
+
+ ולכן 
+\begin_inset Formula 
+\[
+\mathbb{E}_{S\sim D^{m}}\left[L_{D}\left(A\left(S\right)\right)|L_{D}\left(A\left(S\right)\right)\geq\frac{\varepsilon}{2}\right]\leq1\land\mathbb{E}_{S\sim D^{m}}\left[L_{D}\left(A\left(S\right)\right)|L_{D}\left(A\left(S\right)\right)\leq\frac{\varepsilon}{2}\right]\leq\frac{\varepsilon}{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת, מנוסחאת התוחלת השלמה )משפט ההחלקה( נקבל:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left|\mathbb{E}_{S\sim D^{m}}\left[L_{D}\left(A\left(S\right)\right)\right]\right| & =\Big|\mathbb{E}_{S\sim D^{m}}\left[L_{D}\left(A\left(S\right)\right)|L_{D}\left(A\left(S\right)\right)\geq\frac{\varepsilon}{2}\right]\cdot\Pr\left[L_{D}\left(A\left(S\right)\right)\geq\frac{\varepsilon}{2}\right]\\
+ & +\mathbb{E}_{S\sim D^{m}}\left[L_{D}\left(A\left(S\right)\right)|L_{D}\left(A\left(S\right)\right)\leq\frac{\varepsilon}{2}\right]\cdot\Pr\left[L_{D}\left(A\left(S\right)\right)\leq\frac{\varepsilon}{2}\right]\Big|\\
+ & \leq\left|1\cdot\frac{\varepsilon}{2}+\frac{\varepsilon}{2}\cdot1\right|\\
+ & =\varepsilon
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ומכאן שמתקיים 
+\begin_inset Formula $\lim_{m\rightarrow\infty}\mathbb{E}_{S\sim D^{m}}\left[L_{D}\left(A\left(S\right)\right)\right]=0$
+\end_inset
+
+ כנדרש.
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset Formula $\blacksquare$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+שאלה
+\family roman
+\series bold
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\numeric on
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+2
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+בהנתן מדגם 
+\begin_inset Formula $S\subseteq X$
+\end_inset
+
+ אגדיר אלגוריתם לומד באופן הבא:
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+1
+\numeric off
+.
+ האלגוריתם יחשב את 
+\begin_inset Formula $r'$
+\end_inset
+
+ כך,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+r'=\underset{r}{\text{argmax}}\left(\sum_{x\in S}h_{r}\left(x\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+2
+\numeric off
+.
+ האלגוריתם יחזיר את הפונקציה 
+\begin_inset Formula $h_{r'}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+)נשים לב כי האלגוריתם הזה הוא פשוט ה-
+\begin_inset Formula $\text{Empirical risk minimizor}$
+\end_inset
+
+(.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת, 
+\begin_inset CommandInset href
+LatexCommand href
+name "מהנחת הריאליזביליות"
+target "https://moodle2.cs.huji.ac.il/nu19/mod/forumng/discuss.php?d=10397&expand=1#p25688"
+literal "true"
+
+\end_inset
+
+ יהי 
+\begin_inset Formula $h_{r}$
+\end_inset
+
+ ההיפותזה האמיתית, כלומר 
+\begin_inset Formula $r\geq r'$
+\end_inset
+
+, לכן לכל נקודה 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ 
+\end_layout
+
+\end_body
+\end_document

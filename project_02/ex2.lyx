@@ -2604,41 +2604,51 @@ Im\left(X^{T}\right)+Ker\left(X^{T}\right)=d\iff Im\left(X^{T}\right)=d
 \end_layout
 
 \begin_layout Itemize
-פונקצית ה-
-\begin_inset Formula $\text{loss}$
+אם נרצה להתאים את אותו מודל לינארי אך כאשר נשתמש ב-
+\begin_inset Formula $y$
 \end_inset
 
- צריכה להיות כמו 
-\begin_inset Formula $L_{exp}$
-\end_inset
-
- כדי שנקבל תוצאות נכונות.
+ המקורי בפונקציית המחיר
 \end_layout
 
 \begin_deeper
 \begin_layout Standard
-כלומר אנחנו נשלח לפונקצית ה-
-\begin_inset Formula $\text{fit\_linear\_regression}$
+ולא ב-
+\begin_inset Formula $log\left(y\right)$
 \end_inset
 
- את הלוגריתם הטבעי של 
+, אז עבור 
+\begin_inset Formula $\left(x,y\right)$
+\end_inset
+
+ דגימה כלשהי, ומשקל 
+\begin_inset Formula $w\in\mathbb{R}$
+\end_inset
+
+ אנחנו נקבל
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Loss\left(f_{w},\left(x,y\right)\right)=\left(\left\langle w,x\right\rangle -y\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+נשים לב שמכיוון ש-
 \begin_inset Formula $y$
 \end_inset
 
-.
+ אינו מתנהג באופן לינארי, ואנחנו מנסים להתאים לה פונקציה לינארית,
 \end_layout
 
 \begin_layout Standard
-כי אנחנו מנסים לעשות שערוך לפונקציה לינארית ולא אקספוננציאלית, ומכיוון שהלוגריתם
- של פונקציה
-\end_layout
-
-\begin_layout Standard
-אקספוננציאלית הוא לינארי, נבחר ב-
-\begin_inset Formula $\text{loss function}$
-\end_inset
-
- הזה.
+אז נקבל פונקציית לוס בעלת ערכים גדולים יחסית.
 \end_layout
 
 \end_deeper

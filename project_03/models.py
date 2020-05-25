@@ -10,6 +10,7 @@ from pandas import DataFrame
 from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
+
 import sys
 
 # --- constants ---
@@ -208,7 +209,9 @@ class SVM:
         :return: dict
         """
         y_hat = self.predict(X)
-        return global_score(X, y, y_hat)
+        df = global_score(X, y, y_hat)
+        df['accuracy'] = self.model.score(X.transpose(), y)
+        return df
 
 
 class Logistic:

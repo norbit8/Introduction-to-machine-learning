@@ -1328,7 +1328,7 @@ y_{i}\left\langle w,x_{i}\right\rangle =y_{i}\left\langle w,x_{i}\right\rangle =
 
 \begin_layout Standard
 שעליהן אימנו את ה-
-\begin_inset Formula $DATA$
+\begin_inset Formula $\text{DATA}$
 \end_inset
 
 , בנוסף ה-
@@ -1405,9 +1405,13 @@ y_{i}\left\langle w,x_{i}\right\rangle =y_{i}\left\langle w,x_{i}\right\rangle =
 \end_layout
 
 \begin_layout Standard
+בתשובה לשאלה הבאה אני מסביר על התוצאות.
+\end_layout
+
+\begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename question10.png
+	filename q10_new.png
 	lyxscale 50
 	scale 50
 
@@ -1466,23 +1470,27 @@ y_{i}\left\langle w,x_{i}\right\rangle =y_{i}\left\langle w,x_{i}\right\rangle =
 
 \begin_layout Standard
 ניתן לראות בגרף שהמסווג 
-\begin_inset Formula $\text{Perceptron}$
+\begin_inset Formula $\text{SVM}$
 \end_inset
 
  היה המוצלח ביותר מבין שלושת המסווגים, וה-
-\begin_inset Formula $\text{SVM}$
+\begin_inset Formula $\text{Perceptron}$
 \end_inset
 
  גם מאוד קרוב אליו.
 \end_layout
 
 \begin_layout Standard
-לדעתי זה בגלל שהפרספטרון מנסה למצוא את ההפרדה הטובה ביותר, בעוד שה-
+לדעתי זה נובע מהעובדה שה-
+\begin_inset Formula $\text{Perceptron}$
+\end_inset
+
+ מנסה למצוא את ההפרדה הטובה ביותר, בעוד שה-
 \begin_inset Formula $\text{SVM}$
 \end_inset
 
  מנסה למצוא את ה-
-\begin_inset Formula $margin$
+\begin_inset Formula $\text{margin}$
 \end_inset
 
  
@@ -1492,6 +1500,18 @@ y_{i}\left\langle w,x_{i}\right\rangle =y_{i}\left\langle w,x_{i}\right\rangle =
 הטוב ביותר, נשים לב שכל האלגוריתמים מתכנסים יחסית ככל שאנחנו מאמנים על יותר
  
 \begin_inset Formula $\text{DATA}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+בנוסף אלגוריתם ה-
+\begin_inset Formula $\text{LDA}$
+\end_inset
+
+ אינו מצליח להגיע לרמת דיוק של ה-
+\begin_inset Formula $\text{SVM and Perceptron}$
 \end_inset
 
 .
@@ -1700,7 +1720,7 @@ y_{i}\left\langle w,x_{i}\right\rangle =y_{i}\left\langle w,x_{i}\right\rangle =
 
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 הגרף הבא מתאר את הדיוק )
 \begin_inset Formula $\text{Accuracy}$
 \end_inset
@@ -1708,6 +1728,7 @@ y_{i}\left\langle w,x_{i}\right\rangle =y_{i}\left\langle w,x_{i}\right\rangle =
 ( של כל אחד מהאלגוריתמי למידה שנדרשנו לבדוק.
 \end_layout
 
+\begin_deeper
 \begin_layout Standard
 מדדנו את התוצאות על 
 \begin_inset Formula $\text{DATA}$
@@ -1839,7 +1860,7 @@ y_{i}\left\langle w,x_{i}\right\rangle =y_{i}\left\langle w,x_{i}\right\rangle =
 \begin_inset Formula $\text{KNN}$
 \end_inset
 
- דווקא חלה ירידה ככל שאימנו על יותר וזה מכיוון שהגדרתי את שהאלגוריתם
+ דווקא חלה ירידה קלה מאוד ככל שאימנו על יותר וזה מכיוון שהגדרתי את שהאלגוריתם
 \end_layout
 
 \begin_layout Standard
@@ -1849,6 +1870,10 @@ y_{i}\left\langle w,x_{i}\right\rangle =y_{i}\left\langle w,x_{i}\right\rangle =
 
 \begin_layout Standard
 דבר זה כנראה מביא לבעיה מסויימת כי הוא מתחיל להחשיב שכנים שכנראה מטעים אותו.
+\end_layout
+
+\begin_layout Standard
+למרות ששינוי זה הוא מינורי )במאית אחוז(.
 \end_layout
 
 \begin_layout Standard
@@ -1884,9 +1909,83 @@ y_{i}\left\langle w,x_{i}\right\rangle =y_{i}\left\langle w,x_{i}\right\rangle =
 רוב הזמן.
 \end_layout
 
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\color red
+הזמן שלקח לפונקציה לרוץ הוא: 
+\begin_inset Formula $136.6$
+\end_inset
+
+ שניות בסה
+\begin_inset Quotes erd
+\end_inset
+
+כ.
+\end_layout
+
 \begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+בנוסף הפילוח של הזמנים היה כזה שהזמנים שלה אלגוריתמים הבאים היו בסדר הזה
+ )מהזמן הארוך ביותר לקצר(
+\end_layout
+
+\begin_layout Standard
+ה-
+\begin_inset Formula $\overset{50\text{ Seconds}}{\overbrace{\text{KNN}}}>\overset{34\text{ Seconds}}{\overbrace{\text{SVM}}}\geq\overset{33\text{ Seconds}}{\overbrace{\text{Logistic Regression}}}>\overset{19\text{ Seconds}}{\overbrace{\text{Decision Tree}}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ראשית ה-
+\begin_inset Formula $\text{KNN}$
+\end_inset
+
+ עובד הכי לאט משום שהגדרתי לו לעבור על שליש מהשכנים בכל פעם, 
+\end_layout
+
+\begin_layout Standard
+ומכיוון שמספר השכנים גדל אז גם זמן החישוב שלו יגדל בצורה משמעותית.
+\end_layout
+
+\begin_layout Standard
+בנוסף ה-
+\begin_inset Formula $\text{SVM}$
+\end_inset
+
+ גם איטי אך פחות מה-
+\begin_inset Formula $\text{KNN}$
+\end_inset
+
+ זאת מכיוון שהוא נפתר בצורה איטרטיבית, 
+\end_layout
+
+\begin_layout Standard
+כלומר הוא מריץ על כל הנקודות ומעדכן את כל המשקולות
+\end_layout
+
+\begin_layout Standard
+קצת, וחוזר שוב לעבור על כל הנקודות.
+ לכן הוא יהיה איטי יותר.
+\end_layout
+
+\begin_layout Standard
+לבסוף 
+\end_layout
+
+\begin_layout Standard
+\align center
 \begin_inset Graphics
-	filename question14.png
+	filename yoav.png
 	lyxscale 50
 	scale 50
 

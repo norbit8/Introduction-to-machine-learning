@@ -13,6 +13,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.linear_model import LogisticRegression
 from pandas import DataFrame
 from plotnine import *
+import time
 
 # --- constants ---
 TRAINING_POINTS_NUMBERS = (50, 100, 300, 500)
@@ -79,7 +80,7 @@ def calculate_accuracy(lr, svm, dct, neigh, data, true_labels) -> tuple:
     counter = AVG
     sum_accuracy_lr, sum_accuracy_svm, sum_accuracy_dct, sum_accuracy_neigh = 0, 0, 0, 0
     while counter != 0:
-        print("IN WHILE")
+        # print("IN WHILE")
         lr_labels = lr.predict(data)
         svm_labels = svm.predict(data)
         dct_labels = dct.predict(data)
@@ -120,7 +121,7 @@ def get_df_of_accuracies():
     :return: Data frame of all the accuracies
     """
     for m in TRAINING_POINTS_NUMBERS:
-        print(f"CALCULATING {m}")
+        # print(f"CALCULATING {m}")
         training_data, training_labels = draw_uniformly(m, x_train_r, y_train)
         neigh = KNeighborsClassifier(n_neighbors=m // 3).fit(training_data, training_labels)
         lr.fit(training_data, training_labels)
@@ -150,10 +151,15 @@ if __name__ == '__main__':
     # question 12 printing 3 zeros and 3 ones
     question_12()
     # question 14 pre-processing:
+    print("TIMER STARTED")
+    timer_before = time.time()
     x_test_r = rearrange_data(x_test)
     x_train_r = rearrange_data(x_train)
     mean_acc_lr, mean_acc_svm, mean_acc_dct, mean_acc_neigh = [], [], [], []
     lr, dct, svm = LogisticRegression(random_state=0), DecisionTreeClassifier(max_depth=1), SVC(C=1,
                                                                                                 kernel='linear')
     df = get_df_of_accuracies()
+    timer_after = time.time()
+    print(timer_after - timer_before)
     plot_accs(df)
+
