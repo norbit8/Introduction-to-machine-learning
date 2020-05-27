@@ -381,7 +381,7 @@
 \begin_layout Standard
 \begin_inset Formula 
 \[
-r'=\underset{r}{\text{argmax}}\left(\sum_{x\in S}h_{r}\left(x\right)\right)
+r'=\underset{r\in\mathbb{R}}{\text{argmax}}\left(\sum_{x\in S}h_{r}\left(x\right)\right)
 \]
 
 \end_inset
@@ -418,11 +418,19 @@ r'=\underset{r}{\text{argmax}}\left(\sum_{x\in S}h_{r}\left(x\right)\right)
 \end_layout
 
 \begin_layout Standard
-כעת, יהי 
+כעת, מהנחת הריאליזביליות )הרי אנו רוצים להוכיח שמדובר ב-
+\begin_inset Formula $\text{PAC LEARNABLE ALGO}$
+\end_inset
+
+( קיים 
 \begin_inset Formula $h_{r}$
 \end_inset
 
- ההיפותזה האמיתית, כלומר 
+ ההיפותזה האמיתית, 
+\end_layout
+
+\begin_layout Standard
+מהגדרת האלגוריתם בהכרח 
 \begin_inset Formula $r\geq r'$
 \end_inset
 
@@ -430,7 +438,114 @@ r'=\underset{r}{\text{argmax}}\left(\sum_{x\in S}h_{r}\left(x\right)\right)
 \begin_inset Formula $x\in X$
 \end_inset
 
- 
+ המקיימת את 
+\begin_inset Formula $r'\geq\left\Vert x\right\Vert _{2}$
+\end_inset
+
+ או 
+\begin_inset Formula $r<\left\Vert x\right\Vert _{2}$
+\end_inset
+
+ אזי 
+\begin_inset Formula $h_{r}\left(x\right)=h_{r'}\left(x\right)$
+\end_inset
+
+, כלומר:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L_{D}\left(h_{r'}\right)=\Pr_{x\sim D}\left[h_{r'}\left(x\right)\neq h_{r}\left(x\right)\right]=\Pr_{x\sim D}\left[r>\left\Vert x\right\Vert _{2}\geq r'\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת, לכל 
+\begin_inset Formula $\varepsilon,\delta>0$
+\end_inset
+
+ קיים 
+\begin_inset Formula $0<\hat{r}<r$
+\end_inset
+
+ שמקיים 
+\begin_inset Formula $L_{D}\left(h_{\hat{r}}\right)=\Pr_{x\sim D}\left[r\geq\left|\left|x\right|\right|_{2}>\hat{r}\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+ואז אם קיים 
+\begin_inset Formula $x'\in S$
+\end_inset
+
+ שמקיים 
+\begin_inset Formula $r>\left|\left|x'\right|\right|_{2}\geq\hat{r}$
+\end_inset
+
+ אז 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+L_{D}\left(h_{\hat{r}}\right)=\Pr_{x\sim D}\left[r\geq\left|\left|x\right|\right|_{2}>\hat{r}\right]\leq\Pr_{x\sim D}\left[\left|\left|x'\right|\right|_{2}>\left|\left|x\right|\right|_{2}\geq r\right]\leq\Pr_{x\sim D}\left[r\geq\left|\left|x\right|\right|_{2}>\hat{r}\right]=\varepsilon
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כלומר הסיכוי למדגם גרוע בגודל 
+\begin_inset Formula $m$
+\end_inset
+
+ הוא:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+D^{m}\left(L_{D}\left(h_{r'}\right)\geq\varepsilon\right) & =D^{m}\left(S_{m}|\forall x\in S_{m}:\left|\left|x\right|\right|_{2}\leq\hat{r}\lor\left|\left|x\right|\right|_{2}>r\right)\\
+ & =\Pi_{i=1}^{m}\Pr\left[\left|\left|x\right|\right|_{2}\leq\hat{r}\lor\left|\left|x\right|\right|_{2}>r\right]\\
+ & =\Pi_{i=1}^{m}1-\Pr\left[r\geq\left|\left|x\right|\right|_{2}>\hat{r}\right]\\
+ & =\Pi_{i=1}^{m}\left(1-\varepsilon\right)=\left(1-\varepsilon\right)^{m}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת מכיוון שלכל 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ מתקיים 
+\begin_inset Formula $1-\varepsilon\leq e^{-\varepsilon}$
+\end_inset
+
+ אז
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\delta\leq\left(1-\varepsilon\right)^{m}\leq e^{-\varepsilon m}\iff m\leq\frac{\log\left(\frac{1}{\delta}\right)}{\varepsilon}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \end_body

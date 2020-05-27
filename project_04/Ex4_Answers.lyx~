@@ -357,5 +357,90 @@
 
 \end_layout
 
+\begin_layout Standard
+בהנתן מדגם 
+\begin_inset Formula $S\subseteq X$
+\end_inset
+
+ אגדיר אלגוריתם לומד באופן הבא:
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+1
+\numeric off
+.
+ האלגוריתם יחשב את 
+\begin_inset Formula $r'$
+\end_inset
+
+ כך,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+r'=\underset{r}{\text{argmax}}\left(\sum_{x\in S}h_{r}\left(x\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\numeric on
+2
+\numeric off
+.
+ האלגוריתם יחזיר את הפונקציה 
+\begin_inset Formula $h_{r'}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+)נשים לב כי האלגוריתם הזה הוא פשוט ה-
+\begin_inset Formula $\text{Empirical risk minimizor}$
+\end_inset
+
+(.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+כעת, 
+\begin_inset CommandInset href
+LatexCommand href
+name "מהנחת הריאליזביליות"
+target "https://moodle2.cs.huji.ac.il/nu19/mod/forumng/discuss.php?d=10397&expand=1#p25688"
+literal "true"
+
+\end_inset
+
+ יהי 
+\begin_inset Formula $h_{r}$
+\end_inset
+
+ ההיפותזה האמיתית, כלומר 
+\begin_inset Formula $r\geq r'$
+\end_inset
+
+, לכן לכל נקודה 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ 
+\end_layout
+
 \end_body
 \end_document
