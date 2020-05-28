@@ -54,7 +54,8 @@ class AdaBoost(object):
         :return: y_hat : a prediction vector for X. shape=(num_samples)
         Predict only with max_t weak learners,
         """
-        return np.sign(self.w[:max_t] @ [f.predict(X) for f in self.h[:max_t]])
+        s = [f.predict(X) for f in self.h[:max_t]]
+        return np.sign(self.w[:max_t] @ s)
 
     def error(self, X, y, max_t):
         """
@@ -102,6 +103,8 @@ if '__main__' == __name__:
     ab.train(X, y)  # training the model
     X_test, y_test = generate_data(200, 0)  # testing samples
     # plot_errors()  # Q10
-    for t in [5, 10, 50, 100, 200, 500]:
-        decision_boundaries(ab, X_test, y_test, t)
-        plt.show()
+    decision_boundaries(ab, X_test, y_test, 300)
+    # for i, t in enumerate([5, 10, 50, 100, 200, 500]):
+    #     plt.subplot(2, 3, i+1)
+    #     decision_boundaries(ab, X_test, y_test, t)
+    plt.show()
