@@ -9,7 +9,7 @@ Author: Gad Zalcberg
 Date: February, 2019
 
 """
-from plotnine import *
+# from plotnine import *
 from ex4_tools import *
 from pandas import DataFrame
 
@@ -103,8 +103,7 @@ if '__main__' == __name__:
     ab.train(X, y)  # training the model
     X_test, y_test = generate_data(200, 0)  # testing samples
     # plot_errors()  # Q10
-    decision_boundaries(ab, X_test, y_test, 300)
-    # for i, t in enumerate([5, 10, 50, 100, 200, 500]):
-    #     plt.subplot(2, 3, i+1)
-    #     decision_boundaries(ab, X_test, y_test, t)
+    for i, t in enumerate([5, 10, 50, 100, 200, 500]):
+        plt.subplot(2, 3, i+1)
+        decision_boundaries(ab, X_test, y_test, t)
     plt.show()
