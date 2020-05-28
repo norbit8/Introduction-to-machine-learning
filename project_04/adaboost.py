@@ -81,16 +81,7 @@ class AdaBoost(object):
         y_hat = ab.predict(X, max_t)
         return np.count_nonzero(y_hat != y) / y.shape[0]
 
-if '__main__' == __name__:
-    X, y = generate_data(5000, 0)  # training samples
-    T = 500
-    ab = AdaBoost(DecisionStump, T)
-    ab.train(X, y)
-
-    X_test, y_test = generate_data(200, 0)  # testing samples
-    max_t = 200
-    y_pred = ab.predict(X_test, max_t)
-    # print(np.count_nonzero(y_test == y_pred) / y_test.shape[0])
+def plot_errors():
     training_error, testing_error = [], []
     for max_t in range(0, 501):
         testing_error.append(ab.error(X_test, y_test, max_t))
@@ -103,3 +94,14 @@ if '__main__' == __name__:
          labs(title="Prediction error vs number of weak learners (noise = 0.0)", x="T - number of weak learners",
              y="Prediction error"))
     ggsave(g, "q10.png")
+
+
+if '__main__' == __name__:
+    X, y = generate_data(5000, 0)  # training samples
+    ab = AdaBoost(DecisionStump, 500)
+    ab.train(X, y)  # training the model
+    X_test, y_test = generate_data(200, 0)  # testing samples
+    # plot_errors()  # Q10
+    for t in [5, 10, 50, 100, 200, 500]:
+        decision_boundaries(ab, X_test, y_test, t)
+        plt.show()
