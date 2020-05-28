@@ -147,13 +147,6 @@
 314963257
 \end_layout
 
-\begin_layout Section*
-\begin_inset Formula $\text{PAC Learnability}$
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsubsection*
 שאלה
 \family roman
@@ -555,193 +548,6 @@ D^{m}\left(L_{D}\left(h_{r'}\right)\geq\varepsilon\right) & =D^{m}\left(S_{m}|\f
 
 \end_layout
 
-\begin_layout Section*
-\begin_inset Formula $\text{VC dimension}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
-שאלה
-\family roman
-\series bold
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
- 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\numeric on
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-3
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $ $
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section*
-\begin_inset Formula $\text{Agnostic PAC}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
-שאלה
-\family roman
-\series bold
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
- 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\numeric on
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-4
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $ $
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section*
-\begin_inset Formula $\text{Monotonicity}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
-שאלה
-\family roman
-\series bold
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
- 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\numeric on
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-7
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $ $
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section*
-\begin_inset Formula $\text{Theoretical Claim}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
-שאלה
-\family roman
-\series bold
-\shape up
-\size normal
-\emph off
-\bar no
-\strikeout off
-\xout off
-\uuline off
-\uwave off
-\noun off
-\color none
- 
-\family default
-\series default
-\shape default
-\size default
-\emph default
-\numeric on
-\bar default
-\strikeout default
-\xout default
-\uuline default
-\uwave default
-\noun default
-\color inherit
-8
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula $ $
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section*
-\begin_inset Formula $\text{Separate the Inseparable - Adaboost}$
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsubsection*
 שאלה
 \family roman
@@ -1048,42 +854,7 @@ D^{m}\left(L_{D}\left(h_{r'}\right)\geq\varepsilon\right) & =D^{m}\left(S_{m}|\f
 \end_layout
 
 \begin_layout Standard
-בגרף זה אנחנו רואים את הנקודות של ה-
-\begin_inset Formula $\text{Training Data}$
-\end_inset
-
-, כאשר הנקודות הנמצאות בסביבות ה-
-\begin_inset Formula $\text{Boundary}$
-\end_inset
-
- הכחול
-\end_layout
-
-\begin_layout Standard
-והאדום, יהיו גדולות יותר )כלומר המודל נתן להן משקל גדול יותר באיטרציה האחרונה(
- וזאת מכיוון שההסתברות לשגיאה 
-\end_layout
-
-\begin_layout Standard
-שם גדולה יותר, ולכן כדי שהאלגוריתם יוכל לתקן את עצמו באיטרציה הבאה, הוא
- נותן משקל גדול יותר לנקודות הבעייתיות הללו.
-\end_layout
-
-\begin_layout Standard
-בנוסף נשים לב שהנקודות שנמצאות במרכז ה
-\begin_inset Quotes erd
-\end_inset
-
-מעגל
-\begin_inset Quotes erd
-\end_inset
-
- הכחול קטנות יותר, כלומר המודל בטוח יותר בהיותם כחולות, ולכן יתן להן
-\end_layout
-
-\begin_layout Standard
-משקל נמוך יותר, וכך גם עבור נקודות שרחוקות יותר מהמעגל המודל יסווג אותן
- כאדומות ויתן להן משקל נמוך יותר.
+בגרף זה נית
 \end_layout
 
 \begin_layout Standard
@@ -1199,6 +970,97 @@ D^{m}\left(L_{D}\left(h_{r'}\right)\geq\varepsilon\right) & =D^{m}\left(S_{m}|\f
 	lyxscale 50
 	scale 40
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
 \end_inset
 
 
